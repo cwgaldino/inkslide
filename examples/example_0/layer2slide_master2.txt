@@ -1,0 +1,19 @@
+save at:/home/galdino/github/inkmanip/examples/example_0/layers_4
+file:/home/galdino/github/inkmanip/examples/example_0/presentation_master.svg
+master:Slide 1
+file:/home/galdino/github/inkmanip/examples/example_0/presentation_A.svg
+background, Title, Title flourishing
+background, Slide 2
+background, Important slide
+
+# this is a comment
+file:/home/galdino/github/inkmanip/examples/example_0/presentation_master.svg
+master:Slide 2
+file:/home/galdino/github/inkmanip/examples/example_0/presentation_B.svg
+background, Slide 1
+background, Slide 2
+
+# this is a comment
+master:
+file:/home/galdino/github/inkmanip/examples/example_0/presentation_A.svg
+background, The end

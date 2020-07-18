@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Welcome to inkmanip’s documentation! &#8212; inkmanip 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">inkmanip 0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-inkmanip-s-documentation">
+<h1>Welcome to inkmanip’s documentation!<a class="headerlink" href="#welcome-to-inkmanip-s-documentation" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-inkmanip.inkmanip"></span><p>Set of tools to manipulate inkscape files.</p>
+<dl class="class">
+<dt id="inkmanip.inkmanip.inkscapeFile">
+<em class="property">class </em><code class="sig-prename descclassname">inkmanip.inkmanip.</code><code class="sig-name descname">inkscapeFile</code><span class="sig-paren">(</span><em class="sig-param">filePath</em><span class="sig-paren">)</span><a class="headerlink" href="#inkmanip.inkmanip.inkscapeFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads inkscape file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filePath</strong> (<em>str</em>) – directory path to .svg file</p>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="inkmanip.inkmanip.inkscapeFile.prefix">
+<code class="sig-name descname">prefix</code><a class="headerlink" href="#inkmanip.inkmanip.inkscapeFile.prefix" title="Permalink to this definition">¶</a></dt>
+<dd><p>text that initialize .svg file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="inkmanip.inkmanip.inkscapeFile.endOfFile">
+<code class="sig-name descname">endOfFile</code><a class="headerlink" href="#inkmanip.inkmanip.inkscapeFile.endOfFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>text that ends .svg file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="inkmanip.inkmanip.inkscapeFile.layers">
+<code class="sig-name descname">layers</code><a class="headerlink" href="#inkmanip.inkmanip.inkscapeFile.layers" title="Permalink to this definition">¶</a></dt>
+<dd><p>dict.key() is the layer id, dict.value() is the layer itself</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="inkmanip.inkmanip.inkscapeFile.label2id">
+<code class="sig-name descname">label2id</code><a class="headerlink" href="#inkmanip.inkmanip.inkscapeFile.label2id" title="Permalink to this definition">¶</a></dt>
+<dd><p>dict to convert between inkscape label and layer id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="inkmanip.inkmanip.inkscapeFile.getLayersId">
+<code class="sig-name descname">getLayersId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#inkmanip.inkmanip.inkscapeFile.getLayersId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list with layers id’s</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="inkmanip.inkmanip.inkscapeFile.getInkLabels">
+<code class="sig-name descname">getInkLabels</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#inkmanip.inkmanip.inkscapeFile.getInkLabels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list with inkscape labels</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">getLayersId</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Return a list with layers id’s.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">getInkLabels</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Return a list with inkscape labels.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="inkmanip.inkmanip.getInkscapeLabel">
+<code class="sig-prename descclassname">inkmanip.inkmanip.</code><code class="sig-name descname">getInkscapeLabel</code><span class="sig-paren">(</span><em class="sig-param">string</em><span class="sig-paren">)</span><a class="headerlink" href="#inkmanip.inkmanip.getInkscapeLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>It looks for the Inkscape Label of a layer, eg, inkscape:label=”Layer 5”.
+First Label found is returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>string</strong> – (string) svg chunk of text</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>layer id as a string (return 0 if id not found)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="inkmanip.inkmanip.layerTurnOnVisibility">
+<code class="sig-prename descclassname">inkmanip.inkmanip.</code><code class="sig-name descname">layerTurnOnVisibility</code><span class="sig-paren">(</span><em class="sig-param">string</em><span class="sig-paren">)</span><a class="headerlink" href="#inkmanip.inkmanip.layerTurnOnVisibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn on layers visibility. First layer with visibility off is turned on.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>string</strong> – (string) svg chunk of text</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="inkmanip.inkmanip.exportInkscape_svg">
+<code class="sig-prename descclassname">inkmanip.inkmanip.</code><code class="sig-name descname">exportInkscape_svg</code><span class="sig-paren">(</span><em class="sig-param">inkscapeFile_object</em>, <em class="sig-param">out_directory=PosixPath('/home/galdino/github/inkmanip/docs')</em>, <em class="sig-param">out_filename='exported'</em>, <em class="sig-param">layerList='all'</em><span class="sig-paren">)</span><a class="headerlink" href="#inkmanip.inkmanip.exportInkscape_svg" title="Permalink to this definition">¶</a></dt>
+<dd><p>extract layers from inkscape .svg and save in another .svg file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inkscapeFile_object</strong> – inkscapeFile object</p></li>
+<li><p><strong>out_directory</strong> – (string or Path object) output directory</p></li>
+<li><p><strong>out_filename</strong> – (string) new .svg filename</p></li>
+<li><p><strong>layerList</strong> – list of inkscape layer labels as strings</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="inkmanip.inkmanip.svg2pdf">
+<code class="sig-prename descclassname">inkmanip.inkmanip.</code><code class="sig-name descname">svg2pdf</code><span class="sig-paren">(</span><em class="sig-param">inkscape_filepath</em>, <em class="sig-param">out_directory=PosixPath('/home/galdino/github/inkmanip/docs')</em>, <em class="sig-param">out_filename='converted.pdf'</em><span class="sig-paren">)</span><a class="headerlink" href="#inkmanip.inkmanip.svg2pdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts inkscape .svg file in .pdf</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inkscape_filepath</strong> – (string or Path object) .svg file path</p></li>
+<li><p><strong>out_directory</strong> – (string or Path object) output directory</p></li>
+<li><p><strong>out_filename</strong> – string pdf filename</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="inkmanip.inkmanip.merger">
+<code class="sig-prename descclassname">inkmanip.inkmanip.</code><code class="sig-name descname">merger</code><span class="sig-paren">(</span><em class="sig-param">pdf_path_list</em>, <em class="sig-param">out_directory=PosixPath('/home/galdino/github/inkmanip/docs')</em>, <em class="sig-param">out_filename='merged.pdf'</em><span class="sig-paren">)</span><a class="headerlink" href="#inkmanip.inkmanip.merger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge pdf’s.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pdf_path_list</strong> – list of (string or Path object) with all pdf’s to merge (in order)</p></li>
+<li><p><strong>out_directory</strong> – (string or Path object) output directory</p></li>
+<li><p><strong>out_filename</strong> – string pdf filename</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Welcome to inkmanip’s documentation!</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">inkmanip 0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Carlos Galdino.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.1.
+    </div>
+  </body>
+</html>

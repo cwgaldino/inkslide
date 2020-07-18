@@ -1,0 +1,3 @@
+inkscape -f conductivity_edited.svg --verb EditSelectAllInAllLayers --verb SelectionUnGroup --verb SelectionUnGroup --verb SelectionUnGroup
+
+# inkscape -f conductivity_edited.svg --verb "EditSelectAllInAllLayers;SelectionUnGroup;SelectionUnGroup;SelectionUnGroup
