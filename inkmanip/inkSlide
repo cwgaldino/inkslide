@@ -109,6 +109,7 @@ def inkSlide(filepath, AddSlideNumber=False):
                         for label in labelList:
                             presentation.layers[label] = presentation.layers[label].replace('##:slideNumber', str(slideNumber))
 
+                print(labelList)
                 presentation.exportLayerSet2Pdf(labelList=labelList, filepath=filepath)
                 idx +=1
 
@@ -132,11 +133,18 @@ def inkAutoSlide(filepath):
 
         gotofile:
         #           hide layer
-        @           backgroung
+        @           background
         $           over
-        *           add to previous slide
-        !           add to last slide not marked with !
-        +           add layer to previous layer (count as one slide)
+        *           copy previous slide and add current layer
+        !           copy previous slide, exclude layers (the number of layers
+            excluded is the same as the number of !(, and add current layer
+        +           add current layer to previous slide
+        =           Copy layer (use =, ==, ===, ... to avoid having two layers
+            with the same name)
+        = ,         Copy multipe layers (=<layer1>, <layer2>, <layer3>)
+
+        Note:
+            = can copy layers with #
 
         PdfFileMerger
         pip install PyPDF2
@@ -154,11 +162,15 @@ def inkAutoSlide(filepath):
             for label in presentation.getLabels():
                 if label.strip().startswith('*'):
                     text += '\n' + text.splitlines()[-1] + ', ' + label
+                # elif label.strip().startswith('!'):
+                #     if text.splitlines()[-1].split(',')[-1].strip().startswith('!'):
+                #         text += '\n' + ', '.join(text.splitlines()[-1].split(',')[:-1]) + ', ' + label
+                #     else:
+                #         text += ', ' + label
                 elif label.strip().startswith('!'):
-                    if text.splitlines()[-1].split(',')[-1].strip().startswith('!'):
-                        text += '\n' + ', '.join(text.splitlines()[-1].split(',')[:-1]) + ', ' + label
-                    else:
-                        text += ', ' + label
+                    text += '\n' + ', '.join(text.splitlines()[-1].split(',')[:-label.count('!')]) + ', ' + label
+                elif label.strip().startswith('='):
+                    text += '\n' + label.split('=')[-1]
                 elif label.strip().startswith('@'):
                     text += '\nbkg:' + label
                 elif label.strip().startswith('$'):

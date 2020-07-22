@@ -50,8 +50,13 @@ class inkscapeFile(object):
         # split layers
         for part in parts[1:]:
             if self._getLayerLabel(part):
-                self.layers[self._getLayerLabel(part)] = '<g' + part
-                last_layer = self._getLayerLabel(part)
+                # if self._getLayerLabel(part) in self.layers: # deal with layers with the same name
+                #     label = self._getLayerLabel(part)
+                # else:
+                label = self._getLayerLabel(part)
+
+                self.layers[label] = '<g' + part
+                last_layer = label
             else:
                 self.layers[last_layer] += '<g' + part
 
@@ -120,11 +125,11 @@ class inkscapeFile(object):
         f.close()
 
 
-    def _svg2pdf(self, filepath, output_filepath=None):
-        """Converts .svg files to .pdf
+    def _pdf(self, filepath, output_filepath=None):
+        """Export inkscape file to .pdf
 
             Note:
-                This function uses ikscape builtin pdf exporter.
+                This function uses inkscape builtin pdf exporter.
 
             Args:
                 filepath (string or Path object): .svg filepath
@@ -144,7 +149,8 @@ class inkscapeFile(object):
             output_filepath = str(output_filepath) + '.pdf'
 
         # create .pdf
-        os.system('inkscape {0} --export-area-page --export-pdf {1}'.format(str(Path(filepath)), str(output_filepath)))
+        # os.system('inkscape {0} --export-area-page --export-pdf {1}'.format(str(Path(filepath)), str(output_filepath)))
+        os.system('inkscape --export-type=pdf {0} -o {1}'.format(str(Path(filepath)), str(output_filepath)))
 
 
     def exportLayerSet2Pdf(self, labelList, filepath=Path.cwd()/'exported'):
@@ -166,6 +172,6 @@ class inkscapeFile(object):
             temp.write(output.encode())
             temp.seek(0)
 
-            self._svg2pdf(filepath=temp.name, output_filepath=filepath)
+            self._pdf(filepath=temp.name, output_filepath=filepath)
         finally:
             temp.close()
