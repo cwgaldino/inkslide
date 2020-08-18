@@ -11,6 +11,7 @@ import inkmanip as ink
 
 # import sys
 # sys.path.append('/home/galdino/github/inkmanip')
+# sys.path.append(str(Path(r'C:\Users\carlo\Desktop\inkmanip')))
 # import inkmanip.inkmanip as ink
 # import importlib
 # importlib.reload(ink)
