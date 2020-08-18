@@ -8,6 +8,11 @@ from pathlib import Path
 import copy
 import tempfile
 from collections import OrderedDict
+try:
+    from svglib.svglib import svg2rlg
+    from reportlab.graphics import renderPDF
+except:
+    pass
 
 
 class inkscapeFile(object):
@@ -32,6 +37,11 @@ class inkscapeFile(object):
         self.filepath = Path(filePath)
         self.filename = self.filepath.name
 
+        self._parse_layers()
+        self._fix_group_tag()
+
+
+    def _parse_layers(self):
         # open file
         f = self.filepath.open()
 
@@ -45,20 +55,26 @@ class inkscapeFile(object):
             self.endOfFile = parts[-1].split('</g>\n')[-1]    # text that ends .svg file
             parts[-1] = '</g>\n'.join(parts[-1].split('</g>\n')[:-1]) + '</g>\n'
 
-        self.layers = OrderedDict()  # dict.key() is the layer id, dict.value() is the layer itself
+        self.layers = OrderedDict()  # dict.key() is the layer label, dict.value() is the layer itself
 
         # split layers
         for part in parts[1:]:
             if self._getLayerLabel(part):
-                # if self._getLayerLabel(part) in self.layers: # deal with layers with the same name
-                #     label = self._getLayerLabel(part)
-                # else:
                 label = self._getLayerLabel(part)
 
                 self.layers[label] = '<g' + part
-                last_layer = label
+                previous_layer = label
             else:
-                self.layers[last_layer] += '<g' + part
+                self.layers[previous_layer] += '<g' + part
+
+
+    def _fix_group_tag(self):
+        for label, layer in self.layers.items():
+            n = layer.count('<g') - layer.count('</g>')
+            if n>0:
+                self.layers[label] += '</g>\n'*abs(n)
+            elif n<0:
+                self.layers[label] = '<g\n'*abs(n) + self.layers[label]
 
 
     def getLabels(self):
@@ -125,7 +141,7 @@ class inkscapeFile(object):
         f.close()
 
 
-    def _pdf(self, filepath, output_filepath=None):
+    def _pdf(self, filepath, output_filepath=None, converter='inkscape1'):
         """Export inkscape file to .pdf
 
             Note:
@@ -135,6 +151,10 @@ class inkscapeFile(object):
                 filepath (string or Path object): .svg filepath
                 output_filepath (string or Path object): output directory.  If
                     None, same directory of filepath is used.
+                converter (string, optional): method for converting svg file to pdf.
+                    Possible options are: `inkscape1` or `inkscape0.9`, to use the internal
+                    inkscape svg to pdf exporter; or `svglib` to use python package svglib
+                    (use `pip install svglib` if svg lib is not installed).
         """
         filepath = Path(filepath)
 
@@ -149,16 +169,25 @@ class inkscapeFile(object):
             output_filepath = str(output_filepath) + '.pdf'
 
         # create .pdf
-        # os.system('inkscape {0} --export-area-page --export-pdf {1}'.format(str(Path(filepath)), str(output_filepath)))
-        os.system('inkscape --export-type=pdf {0} -o {1}'.format(str(Path(filepath)), str(output_filepath)))
+        if converter == 'inkscape1':
+            os.system('inkscape --export-type=pdf {0} -o {1}'.format(str(Path(filepath)), str(output_filepath)))
+        elif converter == 'inkscape0.9':
+            os.system('inkscape {0} --export-area-page --export-pdf {1}'.format(str(Path(filepath)), str(output_filepath)))
+        elif converter == 'svglib':
+            drawing = svg2rlg(str(Path(filepath)))
+            renderPDF.drawToFile(drawing, str(output_filepath))
 
 
-    def exportLayerSet2Pdf(self, labelList, filepath=Path.cwd()/'exported'):
+    def exportLayerSet2Pdf(self, labelList, filepath=Path.cwd()/'exported', converter='inkscape1'):
         """Export a set of layers to a svg file.
 
         Args:
             labelList (list): list of labels
             filepath (string or Path object, optional)): output filepath
+            converter (string, optional): method for converting svg file to pdf.
+                Possible options are: `inkscape1` or `inkscape0.9`, to use the internal
+                inkscape svg to pdf exporter; or `svglib` to use python package svglib
+                (use `pip install svglib` if svg lib is not installed).
         """
 
         output = copy.copy(self.prefix)
@@ -172,6 +201,6 @@ class inkscapeFile(object):
             temp.write(output.encode())
             temp.seek(0)
 
-            self._pdf(filepath=temp.name, output_filepath=filepath)
+            self._pdf(filepath=temp.name, output_filepath=filepath, converter=converter)
         finally:
             temp.close()

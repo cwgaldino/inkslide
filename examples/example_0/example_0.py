@@ -10,23 +10,21 @@ importlib.reload(ink)
 
 
 presentation = ink.inkscapeFile('presentation_A.svg')  # import .svg
-# presentation.filepath
-# presentation.filename
-# presentation.prefix
-# presentation.endOfFile
-# presentation.layers
-presentation.getLayersLabel()
-presentation._getLayersId()
-
+presentation.filepath
+presentation.filename
+presentation.prefix
+presentation.endOfFile
+presentation.layers
+presentation.getLabels()
 
 # %% export one layer ==========================================================
 presentation = ink.inkscapeFile('presentation_A.svg')
-presentation.exportLayer(labelList=['Title', 'Title flourishing'], filepath='./exported')
+presentation.exportLayerSet(labelList=['Title', '*Title flourishing', '*Title flourishing2'], filepath='./exported')
 
-# %% export many layers from one file ======================================
+# %% export many layers from one file =========labelLists=============================
 presentation = ink.inkscapeFile('presentation_A.svg')
 output_folder = 'layers_0'
-labelLists = [['Title', 'Title flourishing'],
+labelLists = [['Title', '*Title flourishing', '*Title flourishing2'],
               ['Slide 2'],
               ['Important slide'],
               ['The end']
@@ -134,6 +132,7 @@ for labelList in labelLists:
 
 
 # %% adding external images to a presentation ================
+
 
 # %% adding movement ================
 
