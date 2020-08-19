@@ -8,6 +8,8 @@ from pathlib import Path
 import copy
 import tempfile
 from collections import OrderedDict
+from bs4 import BeautifulSoup, Comment
+
 try:
     from svglib.svglib import svg2rlg
     from reportlab.graphics import renderPDF
@@ -38,82 +40,49 @@ class inkscapeFile(object):
         self.filename = self.filepath.name
 
         self._parse_layers()
-        self._fix_group_tag()
-
 
     def _parse_layers(self):
         # open file
         f = self.filepath.open()
+        soup = BeautifulSoup(f, features = 'xml')
+        f.close()
 
-        parts = f.read().split('<g')  # separate groups
-        self.prefix = parts[0]  # text that initialize .svg file
-
-        if len(parts[-1].split('</g>\n'))==1:
-            self.endOfFile = parts[-1].split('/>\n')[-1]    # text that ends .svg file
-            parts[-1] = '/>\n'.join(parts[-1].split('/>\n')[:-1]) + '/>\n'
-        else:
-            self.endOfFile = parts[-1].split('</g>\n')[-1]    # text that ends .svg file
-            parts[-1] = '</g>\n'.join(parts[-1].split('</g>\n')[:-1]) + '</g>\n'
-
+        # layers
+        script_tags = soup.find_all('g')
         self.layers = OrderedDict()  # dict.key() is the layer label, dict.value() is the layer itself
+        for i in range(len(script_tags)):
+            if 'inkscape:label' in script_tags[i].attrs:
+                del_list = []
+                for j in range(len(script_tags[i].contents)):
+                    try:
+                        if 'inkscape:label' in script_tags[i].contents[j].attrs:
+                            del_list.append(j)
+                    except AttributeError:
+                        pass
+                del_list = [x-n for n,x in enumerate(del_list)]
+                for j in del_list:
+                    del script_tags[i].contents[j]
 
-        # split layers
-        for part in parts[1:]:
-            if self._getLayerLabel(part):
-                label = self._getLayerLabel(part)
+                # turn visibility on
+                if 'style' in script_tags[i].attrs:
+                    script_tags[i].attrs['style'] = script_tags[i].attrs['style'].replace("display:none", "display:inline")
 
-                self.layers[label] = '<g' + part
-                previous_layer = label
-            else:
-                self.layers[previous_layer] += '<g' + part
+                # save slide
+                self.layers[script_tags[i].attrs['inkscape:label']] = str(script_tags[i])#.prettify()
 
+        # prefix
+        script_tags = soup.find_all('svg')
 
-    def _fix_group_tag(self):
-        for label, layer in self.layers.items():
-            n = layer.count('<g') - layer.count('</g>')
-            if n>0:
-                self.layers[label] += '</g>\n'*abs(n)
-            elif n<0:
-                self.layers[label] = '<g\n'*abs(n) + self.layers[label]
+        self.prefix = script_tags[0].parent.prettify().replace(script_tags[0].prettify(), '')
+        self.prefix += script_tags[0].prettify().split('<g')[0]
+
+        # end of file
+        self.endOfFile = '\n</svg>'
 
 
     def getLabels(self):
         """Return a list of inkscape labels."""
         return list(self.layers.keys())
-
-
-    def _turnOnVisibility(self, string):
-        """Turn svg object visibility on.
-
-        Search for substring like: 'style="display:none"' and remove it.
-
-        If string has more than one object, first object with visibility off is turned on.
-
-        Args:
-            string (string): svg text
-        """
-        lines = string.splitlines()
-        for idx, line in enumerate(lines):
-            if 'display:none' in line and 'style' in line:
-                lines[idx] = line.replace('display:none', '')
-                return '\n'.join(lines)
-        return '\n'.join(lines)
-
-
-    def _getLayerLabel(self, string):
-        """Search for substring like: inkscape:label="Layer 5". First Label found is returned.
-
-        Args:
-            string (string): svg text
-
-        Returns:
-            string with layer label or 0 if label was not found.
-        """
-
-        lines = string.splitlines()
-        try:
-            return [line for line in lines if line.strip().startswith('inkscape:label=\"')][0].split('\"')[-2]
-        except: return 0
 
 
     def exportLayerSet(self, labelList, filepath=Path.cwd()/'exported'):
@@ -178,7 +147,7 @@ class inkscapeFile(object):
             renderPDF.drawToFile(drawing, str(output_filepath))
 
 
-    def exportLayerSet2Pdf(self, labelList, filepath=Path.cwd()/'exported', converter='inkscape1'):
+    def exportLayerSet2Pdf(self, labelList, filepath=Path.cwd()/'exported', converter='inkscape1'):#, keep_svg=False):
         """Export a set of layers to a svg file.
 
         Args:
@@ -203,4 +172,84 @@ class inkscapeFile(object):
 
             self._pdf(filepath=temp.name, output_filepath=filepath, converter=converter)
         finally:
+            # if keep_svg:
+            #     shutil.copytree(temp.name, str(filepath)+'.svg')
             temp.close()
+
+
+
+
+    #
+    #
+    # def _fix_group_tag(self):
+    #     """Obsolete."""
+    #     for label, layer in self.layers.items():
+    #         n = layer.count('<g') - layer.count('</g>')
+    #         if n>0:
+    #             self.layers[label] += '</g>\n'*abs(n)
+    #         elif n<0:
+    #             self.layers[label] = '<g\n'*abs(n) + self.layers[label]
+    #
+    #
+    # def _internal_parser(self):
+    #     """Obsolete."""
+    #     # open file
+    #     f = self.filepath.open()
+    #
+    #     parts = f.read().split('<g')  # separate groups
+    #     self.prefix = parts[0]  # text that initialize .svg file
+    #
+    #     if len(parts[-1].split('</g>\n'))==1:
+    #         self.endOfFile = parts[-1].split('/>\n')[-1]    # text that ends .svg file
+    #         parts[-1] = '/>\n'.join(parts[-1].split('/>\n')[:-1]) + '/>\n'
+    #     else:
+    #         self.endOfFile = parts[-1].split('</g>\n')[-1]    # text that ends .svg file
+    #         parts[-1] = '</g>\n'.join(parts[-1].split('</g>\n')[:-1]) + '</g>\n'
+    #
+    #     self.layers = OrderedDict()  # dict.key() is the layer label, dict.value() is the layer itself
+    #
+    #     # split layers
+    #     for part in parts[1:]:
+    #         if self._getLayerLabel(part):
+    #             label = self._getLayerLabel(part)
+    #
+    #             self.layers[label] = '<g' + part
+    #             previous_layer = label
+    #         else:
+    #             self.layers[previous_layer] += '<g' + part
+    #
+    #
+    # def _getLayerLabel(self, string):
+    #     """Obsolete."""
+    #     # """Search for substring like: inkscape:label="Layer 5". First Label found is returned.
+    #     #
+    #     # Args:
+    #     #     string (string): svg text
+    #     #
+    #     # Returns:
+    #     #     string with layer label or 0 if label was not found.
+    #     # """
+    #
+    #     # lines = string.splitlines()
+    #     lines = string.split(' ')
+    #     try:
+    #         return [line for line in lines if line.strip().startswith('inkscape:label=\"')][0].split('\"')[-2]
+    #     except: return 0
+    #
+    #
+    # def _turnOnVisibility(self, string):
+    #     """Turn svg object visibility on.
+    #
+    #     Search for substring like: 'style="display:none"' and remove it.
+    #
+    #     If string has more than one object, first object with visibility off is turned on.
+    #
+    #     Args:
+    #         string (string): svg text
+    #     """
+    #     lines = string.splitlines()
+    #     for idx, line in enumerate(lines):
+    #         if 'display:none' in line and 'style' in line:
+    #             lines[idx] = line.replace('display:none', '')
+    #             return '\n'.join(lines)
+    #     return '\n'.join(lines)

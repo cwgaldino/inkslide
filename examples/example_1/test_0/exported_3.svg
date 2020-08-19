@@ -180,7 +180,7 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-233.5)"
-     style="display:none">
+     style="">
     <path
        style="fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:0.529167;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        d="m 76.95457,291.06411 c 0.01264,-0.60598 2.58023,-0.91879 6.714616,-2.42134 4.134387,-1.50255 10.103862,-4.45604 14.475283,-10.50535 3.943011,-5.40512 6.595371,-13.91441 4.381541,-22.40791 -1.63075,-6.47744 -6.259652,-12.94095 -12.940098,-16.77177 -5.956465,-3.44622 -13.692993,-4.73511 -21.111438,-3.21093 -3.431441,0.69609 -6.806401,2.01369 -9.959286,3.86405 -3.313618,1.94468 -6.28158,4.41884 -8.7496,7.22306 -5.109726,5.78945 -8.14671,13.11793 -9.257573,20.27761 -0.67814,4.40199 -0.725353,9.40197 -1.827063,14.52828 -0.585355,2.72687 -1.54852,5.42909 -3.000651,7.95579 -1.523424,2.66562 -3.685101,4.96086 -6.338154,6.6139 -2.446073,1.48604 -5.158926,2.25388 -7.837748,2.34908 -2.838714,0.0964 -5.543676,-0.5636 -7.877979,-1.77083 -2.500945,-1.29819 -4.4969423,-3.18142 -5.9016459,-5.32751 -1.5280984,-2.34184 -2.3110584,-4.92398 -2.4696161,-7.40575 -0.1736318,-2.77499 0.4321215,-5.35021 1.4805499,-7.49217 0,0 3.9e-6,0 3.9e-6,0 1.2266899,-2.49866 3.0225412,-4.35911 4.8817562,-5.6032 2.380204,-1.58923 4.814285,-2.17423 6.802879,-2.25877 4.610466,-0.19252 6.580114,1.69508 6.383193,2.22413 -0.196921,0.52905 -2.511422,-0.0666 -5.89439,0.96576 -1.444745,0.43933 -3.112412,1.2531 -4.534543,2.61825 -1.109849,1.06226 -2.099169,2.49741 -2.647921,4.17567 10e-7,0 -1e-6,10e-6 -1e-6,10e-6 -0.471574,1.43317 -0.633074,3.09262 -0.336908,4.71517 0.261112,1.44864 0.899074,2.92398 1.884844,4.14246 0.899686,1.11785 2.132117,2.07008 3.523353,2.64067 1.293871,0.53493 2.791019,0.76592 4.233693,0.60193 1.359933,-0.15034 2.747554,-0.65952 3.89718,-1.47374 1.285973,-0.86687 2.375746,-2.25864 3.24942,-3.89518 0.83628,-1.58042 1.36557,-3.46103 1.753329,-5.54537 0.73122,-3.93566 0.55428,-8.63036 1.215059,-14.0365 1.077337,-8.87157 4.665322,-17.98127 11.111466,-25.51256 3.134412,-3.65378 6.919413,-6.84229 11.207024,-9.34379 4.078855,-2.3797 8.489371,-4.06563 13.044783,-4.97906 9.916684,-1.96919 19.948415,-0.0196 27.918525,4.82501 8.940157,5.46813 14.525607,14.22813 16.313577,23.07284 2.27928,11.63707 -2.02655,21.99226 -7.66101,28.28299 -6.284899,6.96661 -13.746834,9.25655 -18.640384,9.82563 -4.89355,0.56907 -7.498707,-0.33458 -7.486066,-0.94056 z"
@@ -209,60 +209,4 @@
          y="264.93335"
          style="stroke-width:0.529167">First slide of presentation B</tspan></text>
   </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer2"
-     inkscape:label="Slide 2"
-     style="display:none">
-    <circle
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.529167;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="path870"
-       cx="7.3138623"
-       cy="8.0605583"
-       r="6.2538838" />
-    <circle
-       style="display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.529167;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="path870-2"
-       cx="24.856539"
-       cy="32.548573"
-       r="6.2538838" />
-    <circle
-       style="display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.529167;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="path870-8"
-       cx="42.399212"
-       cy="8.0605583"
-       r="6.2538838" />
-    <circle
-       style="display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.529167;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="path870-1"
-       cx="-70.011696"
-       cy="56.240368"
-       r="6.2538838"
-       transform="scale(-1,1)" />
-    <circle
-       style="display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.529167;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="path870-2-0"
-       cx="-87.554375"
-       cy="31.752354"
-       r="6.2538838"
-       transform="scale(-1,1)" />
-    <circle
-       style="display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.529167;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="path870-8-1"
-       cx="-105.09705"
-       cy="56.240368"
-       r="6.2538838"
-       transform="scale(-1,1)" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:1;font-family:cmr10;-inkscape-font-specification:cmr10;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       x="66.031906"
-       y="12.651259"
-       id="text961"><tspan
-         sodipodi:role="line"
-         id="tspan959"
-         x="66.031906"
-         y="12.651259"
-         style="stroke-width:0.529167">Slide 2 of presentation B</tspan></text>
-  </g>
-</svg>
+  </svg>

@@ -6,8 +6,9 @@ from pathlib import Path
 from PyPDF2 import PdfFileMerger
 import tempfile
 import copy
+import shutil
 
-import inkmanip as ink
+import inkSlide.inkFile as ink
 
 # import sys
 # sys.path.append('/home/galdino/github/inkmanip')
@@ -18,7 +19,7 @@ import inkmanip as ink
 
 
 
-def inkSlide(filepath, AddSlideNumber=False):
+def inkSlide(filepath, AddSlideNumber=False):#, keep_svg=False):
     """
     #           comments
     save at:    filepath of final pdf (if more than one is provided, the last one is used)
@@ -50,7 +51,7 @@ def inkSlide(filepath, AddSlideNumber=False):
             labelLists.append([label.strip() for label in line.split(',')])
 
     try:
-        f = tempfile.TemporaryDirectory()#dir=str(Path(Path.cwd())))
+        f = tempfile.TemporaryDirectory()
         pdf_filepathlist = []
 
         idx = 0
@@ -69,14 +70,15 @@ def inkSlide(filepath, AddSlideNumber=False):
                     else:
                         bkg += presentation.layers[label]+'\n'
             elif labelList[0].startswith('over:'):
+                print(labelList)
                 over = ''
-                for label in labelList[0].split('over:')[-1].split(','):
+                for label in labelList:
+                    label = label.split('over:')[-1]
                     if label == '':
                         pass
                     else:
                         over += presentation.layers[label]+'\n'
             else:
-
 
                 filepath = Path(f'{f.name}/exported_{idx}.pdf')
                 pdf_filepathlist.append(filepath)
@@ -97,13 +99,12 @@ def inkSlide(filepath, AddSlideNumber=False):
                                 changeSlideNumber = False
                                 break
                             if label.startswith('!'):
-                                if any(s.startswith('!') for s in labelList_old):
+                                if any(s.startswith('!') for s in labelList_old) or any(s.startswith('*') for s in labelList_old):
                                     changeSlideNumber = False
                         if changeSlideNumber:
                             slideNumber += 1
                         for label in labelList:
                             presentation.layers[label] = presentation.layers[label].replace('##:slideNumber', str(slideNumber))
-
                         labelList_old = copy.copy(labelList)
                     else:
                         slideNumber += 1
@@ -111,6 +112,7 @@ def inkSlide(filepath, AddSlideNumber=False):
                             presentation.layers[label] = presentation.layers[label].replace('##:slideNumber', str(slideNumber))
 
                 print(labelList)
+                # presentation.exportLayerSet(labelList=labelList, filepath=f'exported_{idx}.svg')
                 presentation.exportLayerSet2Pdf(labelList=labelList, filepath=filepath)
                 idx +=1
 
@@ -121,7 +123,11 @@ def inkSlide(filepath, AddSlideNumber=False):
     # # except UnboundLocalError as e:
     #     raise Exception(e + '\n' + 'Maybe, \'file:\' is missing from the instruction file.')
     finally:
-        f.cleanup()
+        # if keep_svg:
+        #     shutil.copytree(f.name, str(output_filepath)+'_svg')
+        #
+        # else:
+            f.cleanup()
 
 
 
@@ -159,7 +165,7 @@ def inkAutoSlide(filepath):
             presentation = ink.inkscapeFile(filepath)
 
             text = ''
-            text += '\nfile:' + str(filepath)
+            text += '\n\nfile:' + str(filepath)
             for label in presentation.getLabels():
                 if label.strip().startswith('*'):
                     text += '\n' + text.splitlines()[-1] + ', ' + label
@@ -177,10 +183,11 @@ def inkAutoSlide(filepath):
                 elif label.strip().startswith('$'):
                     text += '\nover:' + label
                 elif label.strip().startswith('+'):
-                    text += ',' + label
+                    text += ', ' + label
                 elif label.strip().startswith('gotofile:'):
                     nextfile = Path(label.split('gotofile:')[-1])
                     text += slideList(nextfile)
+                    text += '\n\nfile:' + str(filepath)
                 else:
                     text += '\n' + label
 
@@ -213,7 +220,7 @@ def _merger(filepathlist, filepath=Path.cwd()/'merged.pdf'):
     if Path(filepath).match('*.pdf'):  # Check filename extension
         pass
     else:
-        filepath = str(filepath) + '.svg'
+        filepath = str(filepath) + '.pdf'
     filepath = Path(filepath)
 
     #save file

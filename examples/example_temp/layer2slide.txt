@@ -1,0 +1,13 @@
+file:presentation_A.svg
+Title, Title flourishing, Title flourishing2
+Slide 2
+Important slide
+
+# this is a comment
+file:presentation_B.svg
+Slide 1
+Slide 2
+
+# this is a comment
+file:presentation_A.svg
+The end

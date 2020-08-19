@@ -226,7 +226,7 @@
     </rdf:RDF>
   </metadata>
   <g
-     style="display:none"
+     style=""
      transform="translate(0,-233.5)"
      id="layer1"
      inkscape:groupmode="layer"
@@ -244,7 +244,7 @@
          sodipodi:role="line">This is a title</tspan></text>
   </g>
   <g
-     style="display:none"
+     style=""
      inkscape:label="Title flourishing"
      id="layer4"
      inkscape:groupmode="layer">
@@ -283,7 +283,7 @@
     </g>
   </g>
   <g
-     style="display:none"
+     style=""
      inkscape:label="Title flourishing2"
      id="layer7"
      inkscape:groupmode="layer">
@@ -323,128 +323,4 @@
          sodipodi:nodetypes="cssssc" />
     </g>
   </g>
-  <g
-     style="display:none"
-     inkscape:label="Slide 2"
-     id="layer2"
-     inkscape:groupmode="layer">
-    <g
-       id="g835">
-      <circle
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.152553;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         id="path1583"
-         cx="6.0655608"
-         cy="29.96382"
-         r="2.193917" />
-      <ellipse
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.340785;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         id="path1583-2"
-         cx="18.031952"
-         cy="37.731911"
-         rx="4.7991939"
-         ry="5.0048738" />
-    </g>
-    <g
-       id="g831"
-       style="display:inline">
-      <circle
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.529167;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         id="path1583-2-3"
-         cx="34.873821"
-         cy="42.312973"
-         r="7.6101503" />
-      <circle
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.06268;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         id="path1583-2-3-6"
-         cx="59.560749"
-         cy="30.812372"
-         r="15.282806" />
-    </g>
-    <circle
-       r="27.766766"
-       cy="-0.96379185"
-       cx="91.070053"
-       id="path1583-2-3-6-2"
-       style="display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.93074;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-    <text
-       id="text1579"
-       y="8.5294027"
-       x="71.926414"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:1;font-family:sans-serif;-inkscape-font-specification:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;display:inline;opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff;fill-opacity:1;stroke-width:0.529167"
-         y="8.5294027"
-         x="71.926414"
-         id="tspan1577"
-         sodipodi:role="line">This is the second slide</tspan></text>
-  </g>
-  <g
-     style="display:none"
-     inkscape:label="Slide 3"
-     id="layer8"
-     inkscape:groupmode="layer">
-    <circle
-       r="11.150211"
-       cy="22.777489"
-       cx="88.426025"
-       id="path906-9"
-       style="display:inline;fill:#0000ff;fill-opacity:0.321101;stroke:#000000;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill" />
-    <circle
-       r="11.150211"
-       cy="24.037947"
-       cx="25.112215"
-       id="path906"
-       style="display:inline;fill:#0000ff;fill-opacity:0.321101;stroke:#000000;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill" />
-  </g>
-  <g
-     style="display:none"
-     inkscape:label="Important slide"
-     id="layer3"
-     inkscape:groupmode="layer">
-    <path
-       transform="matrix(1.5626382,0,0,0.66830672,9.2328892,4.7192861)"
-       inkscape:transform-center-y="-0.12617126"
-       inkscape:transform-center-x="0.0051069851"
-       d="M 62.635099,26.074071 47.397593,34.831153 64.928863,36.06512 47.78712,39.941816 64.175807,46.288393 46.652948,44.940241 60.442845,55.835508 44.095852,49.382297 54.061666,63.858162 40.343042,52.873288 45.599266,69.643505 35.727971,55.103023 35.807567,72.677487 30.660708,55.873382 25.556605,72.690523 25.591503,55.115914 15.757221,69.681455 20.970775,52.897923 7.2801345,63.917653 17.209098,49.416489 0.87857165,55.911256 14.640713,44.980951 -2.8786606,46.373666 13.493831,39.985426 -3.6577156,36.152341 13.870359,34.87379 -1.3893711,26.155491 15.73684,30.100232 3.7248207,17.271379 18.92743,26.088906 11.230441,10.289397 23.158629,23.196234 20.460584,5.8299258 28.054479,21.679243 30.595109,4.2892086 33.17996,21.672725 40.73352,5.8041448 38.079652,23.177259 49.974974,10.240126 42.318195,26.05916 57.498328,17.202995 45.518977,30.062358 Z"
-       inkscape:randomized="0"
-       inkscape:rounded="0"
-       inkscape:flatsided="false"
-       sodipodi:arg2="-0.22567117"
-       sodipodi:arg1="-0.37527082"
-       sodipodi:r2="17.194738"
-       sodipodi:r1="34.389477"
-       sodipodi:cy="38.678658"
-       sodipodi:cx="30.638842"
-       sodipodi:sides="21"
-       id="path1664"
-       style="fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.529167;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       sodipodi:type="star" />
-    <text
-       id="text1662"
-       y="32.111629"
-       x="34.439987"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.54442px;line-height:1;font-family:sans-serif;-inkscape-font-specification:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.415831;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff;stroke-width:0.415831"
-         y="32.111629"
-         x="34.439987"
-         id="tspan1660"
-         sodipodi:role="line">This is important</tspan></text>
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer5"
-     inkscape:label="The end">
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:1;font-family:cmr10;-inkscape-font-specification:cmr10;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       x="93.592766"
-       y="29.077555"
-       id="text928"><tspan
-         sodipodi:role="line"
-         id="tspan926"
-         x="93.592766"
-         y="29.077555"
-         style="stroke-width:0.529167">The end</tspan></text>
-  </g>
-</svg>
+  </svg>

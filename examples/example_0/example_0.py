@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Inkmanip example 0."""
+"""inkSlide example 0."""
+
+from pathlib import Path
+from PyPDF2 import PdfFileMerger
 
 import sys
 sys.path.append('../..')
-import inkmanip.inkmanip as ink
+import inkSlide.inkFile as ink
 import importlib
 importlib.reload(ink)
 
-
+# %% get information from file =================================================
 presentation = ink.inkscapeFile('presentation_A.svg')  # import .svg
 presentation.filepath
 presentation.filename
@@ -19,33 +22,33 @@ presentation.getLabels()
 
 # %% export one layer ==========================================================
 presentation = ink.inkscapeFile('presentation_A.svg')
-presentation.exportLayerSet(labelList=['Title', '*Title flourishing', '*Title flourishing2'], filepath='./exported')
+presentation.exportLayerSet(labelList=['Title', 'Title flourishing', 'Title flourishing2'], filepath='./test_0/exported')
 
-# %% export many layers from one file =========labelLists=============================
+# %% export many layers from one file ==========================================
 presentation = ink.inkscapeFile('presentation_A.svg')
-output_folder = 'layers_0'
-labelLists = [['Title', '*Title flourishing', '*Title flourishing2'],
+labelLists = [['Title', 'Title flourishing', 'Title flourishing2'],
               ['Slide 2'],
+              ['Slide 3'],
               ['Important slide'],
               ['The end']
              ]
 
 for idx, labelList in enumerate(labelLists):
-    filepath = Path(f'{output_folder}/exported_{idx}.svg')
-    presentation.exportLayer(labelList=labelList, filepath=filepath)
+    filepath = Path(f'test_1/exported_{idx}.svg')
+    presentation.exportLayerSet(labelList=labelList, filepath=filepath)
 
 # %% export many layers from many files =====================================
 output_folder = 'layers_1'
 
 presentation = ink.inkscapeFile('presentation_A.svg')
-labelLists = [['Title', 'Title flourishing'],
+labelLists = [['Title', 'Title flourishing', 'Title flourishing2'],
               ['Slide 2'],
-              ['Important slide'],
+              ['Slide 3'],
              ]
 idx = 0
 for labelList in labelLists:
-    filepath = Path(f'{output_folder}/exported_{idx}.svg')
-    presentation.exportLayer(labelList=labelList, filepath=filepath)
+    filepath = Path(f'test_2/exported_{idx}.svg')
+    presentation.exportLayerSet(labelList=labelList, filepath=filepath)
     idx +=1
 
 presentation = ink.inkscapeFile('presentation_B.svg')
@@ -53,97 +56,30 @@ labelLists = [['Slide 1'],
               ['Slide 2'],
              ]
 for idx2, labelList in enumerate(labelLists):
-    filepath = Path(f'{output_folder}/exported_{idx}.svg')
-    presentation.exportLayer(labelList=labelList, filepath=filepath)
+    filepath = Path(f'test_2/exported_{idx}.svg')
+    presentation.exportLayerSet(labelList=labelList, filepath=filepath)
     idx +=1
 
 presentation = ink.inkscapeFile('presentation_A.svg')
 labelLists = [['The end'],
              ]
 for idx3, labelList in enumerate(labelLists):
-    filepath = Path(f'{output_folder}/exported_{idx}.svg')
-    presentation.exportLayer(labelList=labelList, filepath=filepath)
+    filepath = Path(f'test_2/exported_{idx}.svg')
+    presentation.exportLayerSet(labelList=labelList, filepath=filepath)
     idx +=1
 
 
+# %% export many layers to pdf file ============================================
+presentation = ink.inkscapeFile('presentation_A.svg')
+labelLists = [['Title', 'Title flourishing', 'Title flourishing2'],
+              ['Slide 2'],
+              ['Slide 3'],
+              ['Important slide'],
+              ['The end']
+             ]
 
-# %% export many layers from many files using instructions file ================
-filepath = 'layer2slide.txt'
-output_folder = 'layers_2'
-
-
-f = Path(filepath).open()
-text = f.read()
-f.close()
-
-labelLists = []
-for line in text.splitlines():
-    if line.startswith('#') or line=='':
-        pass
-    else:
-        labelLists.append([label.strip() for label in line.split(',')])
-
-idx = 0
-for labelList in labelLists:
-    if labelList[0].startswith('file:'):
-        presentation = ink.inkscapeFile(labelList[0].split('file:')[-1])
-    else:
-        filepath = Path(f'{output_folder}/exported_{idx}.svg')
-        presentation.exportLayer(labelList=labelList, filepath=filepath)
-        idx +=1
-
-
-# %% export many layers from many files using instructions file with master files ================
-filepath = 'layer2slide_master.txt'
-output_folder = 'layers_3'
-
-
-f = Path(filepath).open()
-text = f.read()
-f.close()
-
-labelLists = []
-for line in text.splitlines():
-    if line.startswith('#') or line=='':
-        pass
-    else:
-        labelLists.append([label.strip() for label in line.split(',')])
-
-idx = 0
-for labelList in labelLists:
-    if labelList[0].startswith('file:'):
-        presentation = ink.inkscapeFile(labelList[0].split('file:')[-1])
-    elif labelList[0].startswith('master:'):
-        master = ''
-        for label in labelList[0].split('master:')[-1].split(','):
-            if label == '':
-                pass
-            else:
-                master += presentation.layers[label]+'\n'
-    else:
-        filepath = Path(f'{output_folder}/exported_{idx}.svg')
-        presentation.layers['master'] = master
-        # labelList.insert(0, 'master')
-        labelList.append('master')
-        presentation.exportLayer(labelList=labelList, filepath=filepath)
-        idx +=1
-
-# %% export many layers from many files using instructions file with master files and numbered slides ================
-
-
-# %% adding external images to a presentation ================
-
-
-# %% adding movement ================
-
-
-# %% adding transitions ================
-
-
-# %% exporting to pdf ================
-
-
-# %% exporting to jpg ================
-
-
-# %% exporting to svg ================
+for idx, labelList in enumerate(labelLists):
+    filepath = Path(f'test_3/exported_{idx}')
+    # presentation.exportLayerSet2Pdf(labelList=labelList, filepath=filepath, converter='inkscape0.9')
+    # presentation.exportLayerSet2Pdf(labelList=labelList, filepath=filepath, converter='inkscape1')
+    presentation.exportLayerSet2Pdf(labelList=labelList, filepath=filepath, converter='svglib')
