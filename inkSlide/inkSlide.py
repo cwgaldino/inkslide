@@ -11,12 +11,11 @@ import shutil
 import inkSlide.inkFile as ink
 
 # import sys
-# sys.path.append('/home/galdino/github/inkmanip')
+# sys.path.append('/home/galdino/github/inkSlide')
 # sys.path.append(str(Path(r'C:\Users\carlo\Desktop\inkmanip')))
-# import inkmanip.inkmanip as ink
+# import inkSlide.inkFile as ink
 # import importlib
 # importlib.reload(ink)
-
 
 
 def inkSlide(filepath, AddSlideNumber=False):#, keep_svg=False):
