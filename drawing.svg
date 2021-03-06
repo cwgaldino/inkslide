@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg2181"
+   inkscape:version="1.0.2 (1.0.2+r75+1)"
+   sodipodi:docname="drawing.svg">
+  <defs
+     id="defs2175" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="3.959798"
+     inkscape:cx="200.76173"
+     inkscape:cy="198.5592"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="1514"
+     inkscape:window-height="1043"
+     inkscape:window-x="129"
+     inkscape:window-y="26"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata2178">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;line-height:1.25;font-family:cmr10;-inkscape-font-specification:cmr10;stroke-width:0.264583"
+       x="55.142235"
+       y="39.390537"
+       id="text845"><tspan
+         sodipodi:role="line"
+         id="tspan843"
+         x="55.142235"
+         y="39.390537"
+         style="stroke-width:0.264583">aaaa<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.2225px;font-family:cmsy10;-inkscape-font-specification:cmsy10;baseline-shift:super"
+   id="tspan849">- </tspan><tspan
+   style="font-size:2.2225px;baseline-shift:super"
+   id="tspan851">1</tspan>aa</tspan></text>
+  </g>
+</svg>

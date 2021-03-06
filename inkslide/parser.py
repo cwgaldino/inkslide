@@ -15,10 +15,11 @@ try:
     from reportlab.graphics import renderPDF
 except:
     pass
+filepath = '/home/galdino/github/inkslide/examples/example_3/presentation_B.svg'
+# from inkslide.parser import parser
 
-
-class inkscapeFile(object):
-    """ Reads inkscape file.
+class parser(object):
+    """Reads inkscape file.
 
     Args:
         filePath (str): directory path to .svg file
@@ -26,20 +27,22 @@ class inkscapeFile(object):
     Attributes:
         filepath (Pathlib object): svg filepath
         filename (str): svg filename
+        inkscape_version (str): inkscape version used in the file
         prefix (str): text that initialize .svg file
         endOfFile (str): text that ends .svg file
         layers (dict): dict.key() is the layer label, dict.value() is the layer itself
 
     Methods:
-        getLabels(): Return a list of inkscape labels
+        get_labels(): Return a list of inkscape labels
         exportLayerSet(): export layers
         exportLayerSet2Pdf(): export layers in pdf format
     """
-    def __init__(self, filePath):
-        self.filepath = Path(filePath)
+    def __init__(self, filepath):
+        self.filepath = Path(filepath)
         self.filename = self.filepath.name
 
         self._parse_layers()
+
 
     def _parse_layers(self):
         # open file
@@ -72,58 +75,74 @@ class inkscapeFile(object):
 
         # prefix
         script_tags = soup.find_all('svg')
-
         self.prefix = script_tags[0].parent.prettify().replace(script_tags[0].prettify(), '')
         self.prefix += script_tags[0].prettify().split('<g')[0]
 
+        # inkscape version
+        if 'inkscape:version' in script_tags[0].attrs:
+            self.inkscape_version = script_tags[0].attrs['inkscape:version']
+        else:
+            self.inkscape_version = None
+
         # end of file
-        self.endOfFile = '\n</svg>'
+        self.endOfFile = script_tags[0].prettify().split('</g>')[-1]
 
 
-    def getLabels(self):
+    def get_labels(self):
         """Return a list of inkscape labels."""
         return list(self.layers.keys())
 
 
-    def exportLayerSet(self, labelList, filepath=Path.cwd()/'exported'):
+    def export_layers(self, labels, output_filepath=None):
         """Export a set of layers to a svg file.
 
         Args:
-            labelList (list): list of layer labels
-            filepath (string or Path object, optional)): output filepath
+            labels (list): list of layer labels
+            output_filepath (string or Path object, optional)): output filepath. If,
+                None, the svg file will be saved at the current work directory as
+                export.svg.
+
+        See Also:
+            :py:func:`export_layers_pdf`
         """
 
         output = copy.copy(self.prefix)
 
-        for label in labelList:
-            output += self._turnOnVisibility(self.layers[label])
+        for label in labels:
+            output += self._visibility_on(self.layers[label])
         output += self.endOfFile
 
-        if Path(filepath).match('*.svg'):  # Check extension
+        if output_filepath is None:
+            output_filepath = Path.cwd()/'exported.svg'
+
+        # Check extension
+        if Path(output_filepath).match('*.svg'):
             pass
         else:
-            filepath = str(filepath) + '.svg'
+            output_filepath = str(output_filepath) + '.svg'
 
         # save
-        f = Path(filepath).open('w')
+        f = Path(output_filepath).open('w')
         f.write(output)
         f.close()
 
 
-    def _pdf(self, filepath, output_filepath=None, converter='inkscape1'):
+    def _pdf(self, filepath, output_filepath=None, converter=None):
         """Export inkscape file to .pdf
-
-            Note:
-                This function uses inkscape builtin pdf exporter.
 
             Args:
                 filepath (string or Path object): .svg filepath
-                output_filepath (string or Path object): output directory.  If
-                    None, same directory of filepath is used.
+                output_filepath (string or Path object): output filepath.  If
+                    None, same directory and filename is used.
                 converter (string, optional): method for converting svg file to pdf.
-                    Possible options are: `inkscape1` or `inkscape0.9`, to use the internal
-                    inkscape svg to pdf exporter; or `svglib` to use python package svglib
-                    (use `pip install svglib` if svg lib is not installed).
+                    #. `inkscape1.0`
+                        Uses inkscape 1.0 internal pdf converter.
+                    #. `inkscape0.9`
+                        Uses inkscape 0.9.x internal pdf converter.
+                    # `svglib`
+                        Uses python package `svglib` (use `pip install svglib`).
+                    If None, it will try to use inkscape internal converter from
+                    the same inkscape version in the file.
         """
         filepath = Path(filepath)
 
@@ -138,7 +157,12 @@ class inkscapeFile(object):
             output_filepath = str(output_filepath) + '.pdf'
 
         # create .pdf
-        if converter == 'inkscape1':
+        if self.inkscape_version.startswith("1"):
+            converter = 'inkscape1.0'
+        else:
+            converter = 'inkscape0.9'
+
+        if converter == 'inkscape1.0':
             os.system('inkscape --export-type=pdf {0} -o {1}'.format(str(Path(filepath)), str(output_filepath)))
         elif converter == 'inkscape0.9':
             os.system('inkscape {0} --export-area-page --export-pdf {1}'.format(str(Path(filepath)), str(output_filepath)))
@@ -147,22 +171,29 @@ class inkscapeFile(object):
             renderPDF.drawToFile(drawing, str(output_filepath))
 
 
-    def exportLayerSet2Pdf(self, labelList, filepath=Path.cwd()/'exported', converter='inkscape1'):#, keep_svg=False):
+    def export_layers_pdf(self, labels, output_filepath=None, converter=None):#, keep_svg=False):
         """Export a set of layers to a svg file.
 
         Args:
-            labelList (list): list of labels
-            filepath (string or Path object, optional)): output filepath
+            labels (list): list of labels
+            output_filepath (string or Path object, optional)): output filepath
             converter (string, optional): method for converting svg file to pdf.
-                Possible options are: `inkscape1` or `inkscape0.9`, to use the internal
-                inkscape svg to pdf exporter; or `svglib` to use python package svglib
-                (use `pip install svglib` if svg lib is not installed).
-        """
+                #. `inkscape1.0`
+                    Uses inkscape 1.0 internal pdf converter.
+                #. `inkscape0.9`
+                    Uses inkscape 0.9.x internal pdf converter.
+                # `svglib`
+                    Uses python package `svglib` (use `pip install svglib`).
+                If None, it will try to use inkscape internal converter from
+                the same inkscape version in the file.
 
+        See Also:
+            :py:func:`export_layers`
+        """
         output = copy.copy(self.prefix)
 
-        for label in labelList:
-            output += self._turnOnVisibility(self.layers[label])
+        for label in labels:
+            output += self._visibility_on(self.layers[label])
         output += self.endOfFile
 
         try:
@@ -170,13 +201,27 @@ class inkscapeFile(object):
             temp.write(output.encode())
             temp.seek(0)
 
-            self._pdf(filepath=temp.name, output_filepath=filepath, converter=converter)
+            self._pdf(filepath=temp.name, output_filepath=output_filepath, converter=converter)
         finally:
             # if keep_svg:
             #     shutil.copytree(temp.name, str(filepath)+'.svg')
             temp.close()
 
 
+    def _visibility_on(self, string):
+        """Turn svg object visibility on.
+
+        Search for the first substring like: 'style="display:none"' and remove it.
+
+        Args:
+            string (string): svg text
+        """
+        lines = string.splitlines()
+        for idx, line in enumerate(lines):
+            if 'display:none' in line and 'style' in line:
+                lines[idx] = line.replace('display:none', '')
+                return '\n'.join(lines)
+        return '\n'.join(lines)
 
 
     #
@@ -237,19 +282,3 @@ class inkscapeFile(object):
     #     except: return 0
     #
     #
-    # def _turnOnVisibility(self, string):
-    #     """Turn svg object visibility on.
-    #
-    #     Search for substring like: 'style="display:none"' and remove it.
-    #
-    #     If string has more than one object, first object with visibility off is turned on.
-    #
-    #     Args:
-    #         string (string): svg text
-    #     """
-    #     lines = string.splitlines()
-    #     for idx, line in enumerate(lines):
-    #         if 'display:none' in line and 'style' in line:
-    #             lines[idx] = line.replace('display:none', '')
-    #             return '\n'.join(lines)
-    #     return '\n'.join(lines)
