@@ -42,12 +42,14 @@ There are two ways to use (install) this python module.
 
 1) You can download (clone) the repository and use it as a python module (see examples folder).
 
-2) You can put the file `inkslide.py` in your `$HOME/bin` folder and use it as a command.
+2) You can put the file ``inkslide.py`` in your ``$HOME/bin`` folder and use it as a command.
 
     Usage: inkslide [OPTION] FILE
+    
     Create slide from inkscape file.
 
     -h, --help    display this help and exit
+    
     -i,           use instructions file as input
 
 
@@ -63,27 +65,24 @@ You can use it by first creating a instruction file and then building the slide 
 Instructions file
 ===================
 
-A instructions file is a simple txt file where each line can be a command or a list of layers separated by comma `,` that will form a slide.
+A instructions file is a simple txt file where each line can be a command or a list of layers separated by comma ``,`` that will form a slide. Possible special tags, commands, and instructions are:
 
-Possible special tags, commands, and instructions are:
-
-#. `#  <comments>`
+#. ``#  <comments>``
     Lines starting with `#` are ignored.
-#. `save at: <path-to-save-slide>`
+#. ``save at: <path-to-save-slide>``
     filepath to save slide. If more than one is provided, the last one is used.
     If not provided, slides will be saved at current directory as slides.pdf.
 #. `file: <path-to-svg-file>`
     Filepath of svg file of subsequent layers.
 #. `converter: <converter>`
+
     method for converting svg file to pdf.
         #. `inkscape1.0`
             Uses inkscape 1.0 internal pdf converter.
         #. `inkscape0.9`
             Uses inkscape 0.9.x internal pdf converter.
         # `svglib`
-            Uses python package `svglib` (use `pip install svglib`).
-        If None, it will try to use inkscape internal converter from
-        the same inkscape version in the file.
+            Uses python package `svglib` (use `pip install svglib`). If None, it will try to use inkscape internal converter from the same inkscape version in the file.
 #. `bkg: <layer-to-be-used-as-background>`
     Layer to put underneath subsequent slides. This bkg is used until another
     bkg is assigned.
@@ -106,9 +105,7 @@ Possible special tags, commands, and instructions are:
 Embedded instructions
 =======================
 
-Instructions can be embedded directly into the inkscape file. In this case, a instruction file will be generated automatically.
-
-The possible settings are (these must be written in the inkscape file as text --- see example 3):
+Instructions can be embedded directly into the inkscape file. In this case, a instruction file will be generated automatically. The possible settings are (these must be written in the inkscape file as text --- see example 3):
 
 #. inkslide.save at: <path-to-save-slide>
     filepath to save slide. If more than one is provided, the last one is used.
@@ -159,12 +156,4 @@ Each layer can have a personal instruction that must be written at the begging o
 
 
 
-To do
-# %% adding external images to a presentation ================
-
-
-# %% adding movement ================
-
-
-# %% adding transitions ================
 
