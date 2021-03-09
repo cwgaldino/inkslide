@@ -100,7 +100,7 @@ A instructions file is a simple txt file where each line can be a command or a l
         #. ``False`` or ``false``
             No slide numbering.
 #. ``*`` or ``!``
-    use ``*`` in front of any label to do not count that line as a slide
+    use ``*`` or ``!`` in front of any label to do not count that line as a slide
 
 
 Embedded instructions
@@ -108,11 +108,11 @@ Embedded instructions
 
 Instructions can be embedded directly into the inkscape file. In this case, a instruction file will be generated automatically. The possible settings are (these must be written in the inkscape file as text --- see example 3):
 
-#. inkslide.save at: <path-to-save-slide>
-    filepath to save slide. If more than one is provided, the last one is used.
-    If not provided, slides will be saved at current directory as slides.pdf.
-#. ``inkslide.converter: <converter>``
+#. ``inkslide.save at: <path-to-save-slide>``
+    filepath to save slide. If more than one is provided, the last one is used. If not provided, slides will be saved at current directory as slides.pdf.
+#. ``converter: <converter>``
     method for converting svg file to pdf.
+    
         #. ``inkscape1.0``
             Uses inkscape 1.0 internal pdf converter.
         #. ``inkscape0.9``
@@ -121,8 +121,11 @@ Instructions can be embedded directly into the inkscape file. In this case, a in
             Uses python package ``svglib`` (use ``pip install svglib``). If None, it will try to use inkscape internal converter from the same inkscape version in the file.
 #. ``inkslide.slide number: <True, False, all>``
     It replaces the text::
+    
         ##.slidenumber
+        
     by the slide number. There are thre different slide numbering modes:
+    
         #. ``All`` or ``all``
             All layers are counted as different slides.
         #. ``True`` or ``true``
@@ -145,12 +148,9 @@ Each layer can have a personal instruction that must be written at the begging o
 #. ``+``
     Add current layer to the previous one (merging layers).
 #. ``=<layer>, <layer2>, <layer3>``
-    Copy layer. Current layer is disregarded and <layer> is copied
-    (use =, ==, ===, ... to avoid having two layers with the same name). Note that,
-    ``=`` can copy layers that are hidden (``#``).
+    Copy layer. Current layer is disregarded and <layer> is copied (use =, ==, ===, ... to avoid having two layers with the same name). Note that, ``=`` can copy layers that are hidden (``#``).
 #. ``goto:<path-to-another-inkscape-file>``
-    Defines the filepath of inkscape file of subsequent layers. Presentation
-    can be split in multiple files.
+    Defines the filepath of inkscape file of subsequent layers. Presentation can be split in multiple files.
 
 
 

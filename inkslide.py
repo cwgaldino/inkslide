@@ -287,7 +287,7 @@ def inkslide(filepath):
             #. `False` or `false`
                 No slide numbering.
     #. `*` or `!`
-        use `*` in front of any label to do not count that line as a slide
+        use `*` or ``!`` in front of any label to do not count that line as a slide
 
     """
     f = Path(filepath).open()
