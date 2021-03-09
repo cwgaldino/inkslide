@@ -1,0 +1,21 @@
+
+
+file:presentation_A.svg
+bkg:@master
+Title, +Title flourishing, +Title flourishing2
+over:$over 1, +over 2
+Slide 2
+Slide 2, *Slide 3
+!Slide 4
+Important slide
+#This won't show up
+gotofile:presentation_B.svg
+Important slide
+nested slide
+nested slide, *nested slide 1
+nested slide, *nested slide 1, *nested slide 2
+over:$empty over
+The end
+save at: slides.pdf
+converter: None
+slide number: true
