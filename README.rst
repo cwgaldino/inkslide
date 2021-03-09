@@ -30,7 +30,7 @@ They can be installed via pip::
 
 Therefore, these aren't really necessary at first. Only if you don't to use inkscape converter or if it fails.
 
-Finally, the slide construction needs a pdf merger `PdfFileMerger` that can also be installed via pip::
+Finally, the slide construction needs a pdf merger ``PdfFileMerger`` that can also be installed via pip::
 
     pip install PyPDF2
 
@@ -68,38 +68,39 @@ Instructions file
 A instructions file is a simple txt file where each line can be a command or a list of layers separated by comma ``,`` that will form a slide. Possible special tags, commands, and instructions are:
 
 #. ``#  <comments>``
-    Lines starting with `#` are ignored.
+    Lines starting with ``#`` are ignored.
 #. ``save at: <path-to-save-slide>``
-    filepath to save slide. If more than one is provided, the last one is used.
-    If not provided, slides will be saved at current directory as slides.pdf.
-#. `file: <path-to-svg-file>`
+    filepath to save slide. If more than one is provided, the last one is used. If not provided, slides will be saved at current directory as slides.pdf.
+#. ``file: <path-to-svg-file>``
     Filepath of svg file of subsequent layers.
-#. `converter: <converter>`
-
+#. ``converter: <converter>``
     method for converting svg file to pdf.
-        #. `inkscape1.0`
+    
+        #. ``inkscape1.0``
             Uses inkscape 1.0 internal pdf converter.
-        #. `inkscape0.9`
+        #. ``inkscape0.9``
             Uses inkscape 0.9.x internal pdf converter.
-        # `svglib`
-            Uses python package `svglib` (use `pip install svglib`). If None, it will try to use inkscape internal converter from the same inkscape version in the file.
-#. `bkg: <layer-to-be-used-as-background>`
-    Layer to put underneath subsequent slides. This bkg is used until another
-    bkg is assigned.
-#. `over:  <layer-to-be-used-as-overlay>`
+        # ``svglib``
+            Uses python package ``svglib`` (use ``pip install svglib``). If None, it will try to use inkscape internal converter from the same inkscape version in the file.
+#. ``bkg: <layer-to-be-used-as-background>``
+    Layer to put underneath subsequent slides. This bkg is used until another bkg is assigned.
+#. ``over:  <layer-to-be-used-as-overlay>``
     Layer to put over subsequent slides
-#. `slide number: <True, False, all>`
+#. ``slide number: <True, False, all>``
     It replaces the text::
+    
         ##.slidenumber
+        
     by the slide number. There are thre different slide numbering modes:
-        #. `All` or `all`
+    
+        #. ``All`` or ``all``
             All layers are counted as different slides.
-        #. `True` or `true`
-            Layers marked with `*` or `!` do not count as a new slide.
-        #. `False` or `false`
+        #. ``True`` or ``true``
+            Layers marked with ``*`` or ``!`` do not count as a new slide.
+        #. ``False`` or ``false``
             No slide numbering.
-#. `*` or `!`
-    use `*` in front of any label to do not count that line as a slide
+#. ``*`` or ``!``
+    use ``*`` in front of any label to do not count that line as a slide
 
 
 Embedded instructions
@@ -110,47 +111,44 @@ Instructions can be embedded directly into the inkscape file. In this case, a in
 #. inkslide.save at: <path-to-save-slide>
     filepath to save slide. If more than one is provided, the last one is used.
     If not provided, slides will be saved at current directory as slides.pdf.
-#. `inkslide.converter: <converter>`
+#. ``inkslide.converter: <converter>``
     method for converting svg file to pdf.
-        #. `inkscape1.0`
+        #. ``inkscape1.0``
             Uses inkscape 1.0 internal pdf converter.
-        #. `inkscape0.9`
+        #. ``inkscape0.9``
             Uses inkscape 0.9.x internal pdf converter.
-        # `svglib`
-            Uses python package `svglib` (use `pip install svglib`).
-        If None, it will try to use inkscape internal converter from
-        the same inkscape version in the file.
-#. `inkslide.slide number: <True, False, all>`
+        # ``svglib``
+            Uses python package ``svglib`` (use ``pip install svglib``). If None, it will try to use inkscape internal converter from the same inkscape version in the file.
+#. ``inkslide.slide number: <True, False, all>``
     It replaces the text::
         ##.slidenumber
     by the slide number. There are thre different slide numbering modes:
-        #. `All` or `all`
+        #. ``All`` or ``all``
             All layers are counted as different slides.
-        #. `True` or `true`
-            Layers marked with `*` or `!` do not count as a new slide.
-        #. `False` or `false`
+        #. ``True`` or ``true``
+            Layers marked with ``*`` or ``!`` do not count as a new slide.
+        #. ``False`` or ``false``
             No slide numbering.
 
 Each layer can have a personal instruction that must be written at the begging of the layer label. The layer instructions are:
 
-#. `#`
+#. ``#``
     Hide layer (layer does not became a slide)
-#. `@` or `b:`
+#. ``@`` or ``b:``
     Layer is used as a background for subsequent layers until another background layer is set.
-#. `$` or `o:`
+#. ``$`` or ``o:``
     Layer is used as a overlayer for subsequent layers until another overlayer layer is set.
-#. `*`
+#. ``*``
     Previous layer (or layer sequence) is added as background to the current layer to form one slide.
-#. `-`
-    Last slide but the last layer is copied and used is as background to the current layer to form one slide.
-    Multiple layers can be deleted by using multiple `-`.
-#. `+`
+#. ``-``
+    Last slide but the last layer is copied and used is as background to the current layer to form one slide. Multiple layers can be deleted by using multiple ``-``.
+#. ``+``
     Add current layer to the previous one (merging layers).
-#. `=<layer>, <layer2>, <layer3>`
+#. ``=<layer>, <layer2>, <layer3>``
     Copy layer. Current layer is disregarded and <layer> is copied
     (use =, ==, ===, ... to avoid having two layers with the same name). Note that,
-    `=` can copy layers that are hidden (`#`).
-#. `goto:<path-to-another-inkscape-file>`
+    ``=`` can copy layers that are hidden (``#``).
+#. ``goto:<path-to-another-inkscape-file>``
     Defines the filepath of inkscape file of subsequent layers. Presentation
     can be split in multiple files.
 
