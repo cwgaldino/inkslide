@@ -61,24 +61,25 @@ class parser(object):
         script_tags = soup.find_all('g')
         self.layers = OrderedDict()  # dict.key() is the layer label, dict.value() is the layer itself
         for i in range(len(script_tags)):
-            if 'inkscape:label' in script_tags[i].attrs:
-                del_list = []
-                for j in range(len(script_tags[i].contents)):
-                    try:
-                        if 'inkscape:label' in script_tags[i].contents[j].attrs:
-                            del_list.append(j)
-                    except AttributeError:
-                        pass
-                del_list = [x-n for n,x in enumerate(del_list)]
-                for j in del_list:
-                    del script_tags[i].contents[j]
+            if 'inkscape:label' in script_tags[i].attrs and'id' in script_tags[i].attrs:
+                if script_tags[i].attrs['id'].startswith('layer'):
+                    del_list = []
+                    for j in range(len(script_tags[i].contents)):
+                        try:
+                            if 'inkscape:label' in script_tags[i].contents[j].attrs:
+                                del_list.append(j)
+                        except AttributeError:
+                            pass
+                    del_list = [x-n for n,x in enumerate(del_list)]
+                    for j in del_list:
+                        del script_tags[i].contents[j]
 
-                # turn visibility on
-                if 'style' in script_tags[i].attrs:
-                    script_tags[i].attrs['style'] = script_tags[i].attrs['style'].replace("display:none", "display:inline")
+                    # turn visibility on
+                    if 'style' in script_tags[i].attrs:
+                        script_tags[i].attrs['style'] = script_tags[i].attrs['style'].replace("display:none", "display:inline")
 
-                # save slide
-                self.layers[script_tags[i].attrs['inkscape:label']] = str(script_tags[i])#.prettify()
+                    # save slide
+                    self.layers[script_tags[i].attrs['inkscape:label']] = str(script_tags[i])#.prettify()
 
         # prefix
         script_tags = soup.find_all('svg')
