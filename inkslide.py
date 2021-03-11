@@ -66,8 +66,9 @@ class parser(object):
                     del_list = []
                     for j in range(len(script_tags[i].contents)):
                         try:
-                            if 'inkscape:label' in script_tags[i].contents[j].attrs:
-                                del_list.append(j)
+                            if 'inkscape:groupmode' in script_tags[i].contents[j].attrs:
+                                if script_tags[i].attrs['inkscape:groupmode'] == 'layer':
+                                    del_list.append(j)
                         except AttributeError:
                             pass
                     del_list = [x-n for n,x in enumerate(del_list)]
