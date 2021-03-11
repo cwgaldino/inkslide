@@ -61,8 +61,8 @@ class parser(object):
         script_tags = soup.find_all('g')
         self.layers = OrderedDict()  # dict.key() is the layer label, dict.value() is the layer itself
         for i in range(len(script_tags)):
-            if 'inkscape:label' in script_tags[i].attrs and'id' in script_tags[i].attrs:
-                if script_tags[i].attrs['id'].startswith('layer'):
+            if 'inkscape:label' in script_tags[i].attrs and 'inkscape:groupmode' in script_tags[i].attrs:
+                if script_tags[i].attrs['inkscape:groupmode'] == 'layer':
                     del_list = []
                     for j in range(len(script_tags[i].contents)):
                         try:

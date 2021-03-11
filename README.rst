@@ -44,7 +44,7 @@ There are two ways to use (install) this python module.
 
 2) You can put the file ``inkslide.py`` in your ``$HOME/bin`` folder and use it as a command.
 
-    Usage: inkslide [OPTION] FILE
+    Usage: inkslide.py [OPTION] FILE
     
     Create slide from inkscape file.
 
