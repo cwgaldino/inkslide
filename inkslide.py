@@ -288,8 +288,8 @@ def inkslide(filepath):
                 Layers marked with `*` or `!` do not count as a new slide.
             #. `False` or `false`
                 No slide numbering.
-    #. `*` or `!`
-        use `*` or ``!`` in front of any label to do not count that line as a slide
+    #. `!`
+        use `!` in front of any label to do not count that line as a slide.
 
     """
     f = Path(filepath).open()
@@ -437,6 +437,8 @@ def create_instructions(filepath):
         Multiple layers can be deleted by using multiple `-`.
     #. `+`
         Add current layer to the previous one (merging layers).
+    #. `!`
+        Do not count the layer as a new slide (slide number does not change).
     #. `=<layer>, <layer2>, <layer3>`
         Copy layer. Current layer is disregarded and <layer> is copied
         (use =, ==, ===, ... to avoid having two layers with the same name). Note that,
@@ -456,7 +458,7 @@ def create_instructions(filepath):
     show_slide_number = 'False'
     converter = None
     output_filepath = Path.cwd()/'slides.pdf'
-    # remove comments, define output_filepath, get converter, get slide number mode, get lines
+    # define output_filepath, get converter, get slide number mode
     lines = []
     for line in text.splitlines():
         if 'inkslide.save at:' in line:
@@ -474,7 +476,9 @@ def create_instructions(filepath):
             text = ''
             text += '\n\nfile:' + str(filepath)
             for label in ink.get_labels():
-                if label.strip().startswith('*'):
+                if label.strip().startswith('#'):
+                    pass
+                elif label.strip().startswith('*'):
                     text += '\n' + text.splitlines()[-1] + ', ' + label
                 elif label.strip().startswith('-'):
                     text += '\n' + ', '.join(text.splitlines()[-1].split(',')[:-label.count('-')]) + ', ' + label
