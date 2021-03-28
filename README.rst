@@ -3,14 +3,11 @@
 inkslide
 =========
 
-.. |Maintenance yes| image:: https://img.shields.io/badge/Maintained%3F-yes-green.svg
-   :target: https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity
-
-Slide presentation from Inkscape svg files using python. It was tested on Ubuntu 20.04 with Inkscape 1.0 and 0.9.3. However, it should work fine on windows and mac.
-
-.. image:: https://raw.githubusercontent.com/cwgaldino/inkslide/readme.png?sanitize=true
+Slide presentation from Inkscape svg files using python.
 
 .. image:: https://github.com/cwgaldino/inkslide/blob/master/readme.png?sanitize=true
+
+It was tested on Ubuntu 20.04 with Inkscape 1.0 and 0.9.3. However, it should work fine on windows and mac.
 
 Please, report issues and enhancement ideas on GitHub. The script is in a early stage of development so every comment helps.
 
