@@ -10,6 +10,7 @@ Slide presentation from Inkscape svg files using python. It was tested on Ubuntu
 
 .. image:: https://raw.githubusercontent.com/cwgaldino/inkslide/readme.png?sanitize=true
 
+.. image:: https://github.com/cwgaldino/inkslide/blob/master/readme.png?sanitize=true
 
 Please, report issues and enhancement ideas on GitHub. The script is in a early stage of development so every comment helps.
 
