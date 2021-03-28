@@ -3,6 +3,9 @@
 inkslide
 =========
 
+.. |Maintenance yes| image:: https://img.shields.io/badge/Maintained%3F-yes-green.svg
+   :target: https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity
+
 Slide presentation from Inkscape svg files using python. It was tested on Ubuntu 20.04 with Inkscape 1.0 and 0.9.3. However, it should work fine on windows and mac.
 
 .. image:: https://raw.githubusercontent.com/cwgaldino/inkslide/readme.png?sanitize=true
@@ -11,7 +14,7 @@ Slide presentation from Inkscape svg files using python. It was tested on Ubuntu
 Please, report issues and enhancement ideas on GitHub. The script is in a early stage of development so every comment helps.
 
 Dependencies
-==========
+============
 
 The svg parser script relies on
 
@@ -40,14 +43,16 @@ Finally, the slide construction needs a pdf merger ``PdfFileMerger`` that can al
     pip install PyPDF2
 
 
-Installation
-=============
+Installation and usage
+======================
 
-There are two ways to use (install) this python module.
+There two ways to use (install) this python module.
 
-1) You can download (clone) the repository and use it as a python module (see examples folder).
+1) You can download (clone) the repository and use it as a python module (see python scripts in the tutorial folder).
 
-2) You can put the file ``inkslide.py`` in your ``$HOME/bin`` folder and use it as a command.
+or
+
+2) You can download (clone) the repository and put the file ``inkslide.py`` in your ``$HOME/bin`` folder and use it as a command.
 
     Usage: inkslide.py [OPTION] FILE
 
@@ -58,14 +63,12 @@ There are two ways to use (install) this python module.
     -i            use instructions file as input
 
 
-Usage
-======
+Tutorials and examples
+======================
 
-You can use it by first creating a instruction file and then building the slide presentation from it or builtin the instructions directly into the Inkscape file.
+Tutorial file 0 will give you examples how to use the svg file ``parser`` class, which is useful if you want to do your own tinkering with Inkscape svg files.
 
-1) Example 1 shows how to create presentation from the a instructions file, where you can see how to write the instructions file.
-
-2) Example 2 shows how instructions can be built in into the Inkscape file. A instructions file is created automatically and can be edited afterwards.
+Tutorial files 1 and 2 will give examples on how to create presentations from Inkscape files by importing ``inkslide.py`` as a module. Note that one can generate a presentation from a instructions file or embedded the instructions directly into the Inkscape file. In the later, a instructions file will be generated automatically. In addition to that, one can also use ``inkslide.py`` as a command. For instance, presentations in the Examples folder were created by calling ``inkslide.py`` from the terminal.
 
 Instructions file
 ===================
@@ -85,7 +88,7 @@ A instructions file is a simple txt file where each line can be a command or a l
             Uses Inkscape 1.0 internal pdf converter.
         #. ``inkscape0.9``
             Uses Inkscape 0.9.x internal pdf converter.
-        # ``svglib``
+        #. ``svglib``
             Uses python package ``svglib`` (use ``pip install svglib``). If None, it will try to use Inkscape internal converter from the same Inkscape version in the file.
 #. ``bkg: <layer-to-be-used-as-background>``
     Layer to put underneath subsequent slides. This bkg is used until another bkg is assigned.
