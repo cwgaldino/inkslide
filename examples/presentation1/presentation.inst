@@ -1,0 +1,47 @@
+
+
+file:presentation.svg
+bkg:@bkg0
+title
+bkg:@bkg1
+over:$over
+intro1
+intro1, *intro2, +intro3
+intro1,  *intro2, -intro4
+intro1,   *intro2, -intro5
+intro1,    *intro2, -intro6
+charge_order1
+XAS1
+XAS1, *XAS2
+XAS1, *XAS2, *XAS3
+XAS1, *XAS2, *XAS3, *XAS4
+XAS1, *XAS2, *XAS3, *XAS4, *XAS5
+XAS1, *XAS2, *XAS3, *XAS4, *XAS5, *XAS6
+charge_order2
+charge_order2, *charge_order3
+EXAFS1
+EXAFS1, *EXAFS2
+EXAFS-XRD
+EXAFS-XRD, *EXAFS-XRD2
+EXAFS-XRD, *EXAFS-XRD2, *EXAFS-XRD3
+EXAFS-XRD, *EXAFS-XRD2, *EXAFS-XRD3, *EXAFS-XRD4
+EXAFS-XRD, *EXAFS-XRD2, *EXAFS-XRD3, *EXAFS-XRD4, *EXAFS-XRD5
+macroscopic
+macroscopic, *macroscopic2
+lattice-parameters1
+!lattice-parameters2
+!lattice-parameters3
+!lattice-parameters4
+!lattice-parameters5
+neutron1
+neutron1, *neutron2
+neutron1, *neutron2, *neutron3
+bkg:@bkg3
+over:$over3
+end, +end2
+end, -end3
+end, -end4
+black
+save at: /home/galdino/github/inkslide/presentations/presentation1/slides.pdf
+converter: None
+slide number: true

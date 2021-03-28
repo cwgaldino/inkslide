@@ -3,11 +3,14 @@
 inkslide
 =========
 
-Slide presentation from inkscape svg files using python. It was tested on ubuntu 20.04 with inkscape 1.0 and 0.9.3. However, it should work fine on windows and mac.
+Slide presentation from Inkscape svg files using python. It was tested on Ubuntu 20.04 with Inkscape 1.0 and 0.9.3. However, it should work fine on windows and mac.
 
-Please, report issues and enhancement ideas on GitHub.
+.. image:: https://raw.githubusercontent.com/cwgaldino/inkslide/readme.png?sanitize=true
 
-Depencies
+
+Please, report issues and enhancement ideas on GitHub. The script is in a early stage of development so every comment helps.
+
+Dependencies
 ==========
 
 The svg parser script relies on
@@ -20,7 +23,7 @@ They can be installed via pip::
     pip install beautifulsoup4
     pip install lxml
 
-Additionaly, the scripts uses the inkscape internal pdf converter to convert svg files to pdf. In case it fails, it falls back to python libraries to do te conversion     
+Additionally, the scripts uses the Inkscape internal pdf converter to convert svg files to pdf. In case it fails, it falls back to python libraries to do te conversion
 
 1. svglib
 2. reportlab
@@ -30,7 +33,7 @@ They can be installed via pip::
     pip install svglib
     pip install reportlab
 
-Therefore, these aren't really necessary at first. Only if you don't to use inkscape converter or if it fails.
+Therefore, these aren't really necessary at first. Only if you don't to use Inkscape converter or if it fails.
 
 Finally, the slide construction needs a pdf merger ``PdfFileMerger`` that can also be installed via pip::
 
@@ -47,22 +50,22 @@ There are two ways to use (install) this python module.
 2) You can put the file ``inkslide.py`` in your ``$HOME/bin`` folder and use it as a command.
 
     Usage: inkslide.py [OPTION] FILE
-    
-    Create slide from inkscape file.
+
+    Create slide from Inkscape file.
 
     -h, --help    display this help and exit
-    
-    -i,           use instructions file as input
+
+    -i            use instructions file as input
 
 
 Usage
 ======
 
-You can use it by first creating a instruction file and then building the slide presentation from it or builtin the instructions directly into the inkscape file.
+You can use it by first creating a instruction file and then building the slide presentation from it or builtin the instructions directly into the Inkscape file.
 
 1) Example 1 shows how to create presentation from the a instructions file, where you can see how to write the instructions file.
 
-2) Example 2 shows how instructions can be built in into the inkscape file. A instructions file is created automatically and can be edited afterwards.
+2) Example 2 shows how instructions can be built in into the Inkscape file. A instructions file is created automatically and can be edited afterwards.
 
 Instructions file
 ===================
@@ -77,24 +80,24 @@ A instructions file is a simple txt file where each line can be a command or a l
     Filepath of svg file of subsequent layers.
 #. ``converter: <converter>``
     method for converting svg file to pdf.
-    
+
         #. ``inkscape1.0``
-            Uses inkscape 1.0 internal pdf converter.
+            Uses Inkscape 1.0 internal pdf converter.
         #. ``inkscape0.9``
-            Uses inkscape 0.9.x internal pdf converter.
+            Uses Inkscape 0.9.x internal pdf converter.
         # ``svglib``
-            Uses python package ``svglib`` (use ``pip install svglib``). If None, it will try to use inkscape internal converter from the same inkscape version in the file.
+            Uses python package ``svglib`` (use ``pip install svglib``). If None, it will try to use Inkscape internal converter from the same Inkscape version in the file.
 #. ``bkg: <layer-to-be-used-as-background>``
     Layer to put underneath subsequent slides. This bkg is used until another bkg is assigned.
 #. ``over:  <layer-to-be-used-as-overlay>``
     Layer to put over subsequent slides
 #. ``slide number: <True, False, all>``
     It replaces the text::
-    
+
         ##.slidenumber
-        
-    by the slide number. There are thre different slide numbering modes:
-    
+
+    by the slide number. There are three different slide numbering modes:
+
         #. ``All`` or ``all``
             All layers are counted as different slides.
         #. ``True`` or ``true``
@@ -108,26 +111,26 @@ A instructions file is a simple txt file where each line can be a command or a l
 Embedded instructions
 =======================
 
-Instructions can be embedded directly into the inkscape file. In this case, a instruction file will be generated automatically. The possible settings are (these must be written in the inkscape file as text --- see example 3):
+Instructions can be embedded directly into the Inkscape file. In this case, a instruction file will be generated automatically. The possible settings are (these must be written in the Inkscape file as text --- see example 3):
 
 #. ``inkslide.save at: <path-to-save-slide>``
     filepath to save slide. If more than one is provided, the last one is used. If not provided, slides will be saved at current directory as slides.pdf.
 #. ``converter: <converter>``
     method for converting svg file to pdf.
-    
+
         #. ``inkscape1.0``
-            Uses inkscape 1.0 internal pdf converter.
+            Uses Inkscape 1.0 internal pdf converter.
         #. ``inkscape0.9``
-            Uses inkscape 0.9.x internal pdf converter.
-        # ``svglib``
-            Uses python package ``svglib`` (use ``pip install svglib``). If None, it will try to use inkscape internal converter from the same inkscape version in the file.
+            Uses Inkscape 0.9.x internal pdf converter.
+        #. ``svglib``
+            Uses python package ``svglib`` (use ``pip install svglib``). If None, it will try to use Inkscape internal converter from the same Inkscape version in the file.
 #. ``inkslide.slide number: <True, False, all>``
     It replaces the text::
-    
+
         ##.slidenumber
-        
-    by the slide number. There are thre different slide numbering modes:
-    
+
+    by the slide number. There are three different slide numbering modes:
+
         #. ``All`` or ``all``
             All layers are counted as different slides.
         #. ``True`` or ``true``
@@ -152,8 +155,4 @@ Each layer can have a personal instruction that must be written at the begging o
 #. ``=<layer>, <layer2>, <layer3>``
     Copy layer. Current layer is disregarded and <layer> is copied (use =, ==, ===, ... to avoid having two layers with the same name). Note that, ``=`` can copy layers that are hidden (``#``).
 #. ``goto:<path-to-another-inkscape-file>``
-    Defines the filepath of inkscape file of subsequent layers. Presentation can be split in multiple files.
-
-
-
-
+    Defines the filepath of Inkscape file of subsequent layers. Presentation can be split in multiple files.
