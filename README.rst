@@ -10,7 +10,7 @@ Slide presentation from Inkscape svg files using python. It was tested on Ubuntu
 Export presentation:
 
 .. image:: https://github.com/cwgaldino/inkslide/blob/master/figs/fig_2.png?sanitize=true
-  :width: 100px
+  :width: 50px
 
 .. image:: https://github.com/cwgaldino/inkslide/blob/master/figs/fig_3.png?sanitize=true
 
@@ -73,46 +73,6 @@ Tutorial file 0 will give you examples how to use the svg file ``parser`` class,
 
 Tutorial files 1 and 2 will give examples on how to create presentations from Inkscape files by importing ``inkslide.py`` as a module. Note that one can generate a presentation from a instructions file or embedded the instructions directly into the Inkscape file. In the later, a instructions file will be generated automatically. In addition to that, one can also use ``inkslide.py`` as a command. For instance, presentations in the Examples folder were created by calling ``inkslide.py`` from the terminal.
 
-Instructions file
-===================
-
-A instructions file is a simple txt file where each line can be a command or a list of layers separated by comma ``,`` that will form a slide. Possible special tags, commands, and instructions are:
-
-#. ``#  <comments>``
-    Lines starting with ``#`` are ignored.
-#. ``save at: <path-to-save-slide>``
-    filepath to save slide. If more than one is provided, the last one is used. If not provided, slides will be saved at current directory as slides.pdf.
-#. ``file: <path-to-svg-file>``
-    Filepath of svg file of subsequent layers.
-#. ``converter: <converter>``
-    method for converting svg file to pdf.
-
-        #. ``inkscape1.0``
-            Uses Inkscape 1.0 internal pdf converter.
-        #. ``inkscape0.9``
-            Uses Inkscape 0.9.x internal pdf converter.
-        #. ``svglib``
-            Uses python package ``svglib`` (use ``pip install svglib``). If None, it will try to use Inkscape internal converter from the same Inkscape version in the file.
-#. ``bkg: <layer-to-be-used-as-background>``
-    Layer to put underneath subsequent slides. This bkg is used until another bkg is assigned.
-#. ``over:  <layer-to-be-used-as-overlay>``
-    Layer to put over subsequent slides
-#. ``slide number: <True, False, all>``
-    It replaces the text::
-
-        ##.slidenumber
-
-    by the slide number. There are three different slide numbering modes:
-
-        #. ``All`` or ``all``
-            All layers are counted as different slides.
-        #. ``True`` or ``true``
-            Layers marked with ``*`` or ``!`` do not count as a new slide.
-        #. ``False`` or ``false``
-            No slide numbering.
-#. ``*`` or ``!``
-    use ``*`` or ``!`` in front of any label to do not count that line as a slide
-
 
 Embedded instructions
 =======================
@@ -162,3 +122,44 @@ Each layer can have a personal instruction that must be written at the begging o
     Copy layer. Current layer is disregarded and <layer> is copied (use =, ==, ===, ... to avoid having two layers with the same name). Note that, ``=`` can copy layers that are hidden (``#``).
 #. ``goto:<path-to-another-inkscape-file>``
     Defines the filepath of Inkscape file of subsequent layers. Presentation can be split in multiple files.
+
+
+Instructions file
+===================
+
+A instructions file is a simple txt file where each line can be a command or a list of layers separated by comma ``,`` that will form a slide. Possible special tags, commands, and instructions are:
+
+#. ``#  <comments>``
+    Lines starting with ``#`` are ignored.
+#. ``save at: <path-to-save-slide>``
+    filepath to save slide. If more than one is provided, the last one is used. If not provided, slides will be saved at current directory as slides.pdf.
+#. ``file: <path-to-svg-file>``
+    Filepath of svg file of subsequent layers.
+#. ``converter: <converter>``
+    method for converting svg file to pdf.
+
+        #. ``inkscape1.0``
+            Uses Inkscape 1.0 internal pdf converter.
+        #. ``inkscape0.9``
+            Uses Inkscape 0.9.x internal pdf converter.
+        #. ``svglib``
+            Uses python package ``svglib`` (use ``pip install svglib``). If None, it will try to use Inkscape internal converter from the same Inkscape version in the file.
+#. ``bkg: <layer-to-be-used-as-background>``
+    Layer to put underneath subsequent slides. This bkg is used until another bkg is assigned.
+#. ``over:  <layer-to-be-used-as-overlay>``
+    Layer to put over subsequent slides
+#. ``slide number: <True, False, all>``
+    It replaces the text::
+
+        ##.slidenumber
+
+    by the slide number. There are three different slide numbering modes:
+
+        #. ``All`` or ``all``
+            All layers are counted as different slides.
+        #. ``True`` or ``true``
+            Layers marked with ``*`` or ``!`` do not count as a new slide.
+        #. ``False`` or ``false``
+            No slide numbering.
+#. ``*`` or ``!``
+    use ``*`` or ``!`` in front of any label to do not count that line as a slide
