@@ -7,8 +7,6 @@ Slide presentation from Inkscape svg files using python. It was tested on Ubuntu
 
 .. image:: https://github.com/cwgaldino/inkslide/blob/master/figs/fig_1.png?sanitize=true
 
-Export presentation:
-
 .. image:: https://github.com/cwgaldino/inkslide/blob/master/figs/fig_2.png?sanitize=true
 
 .. image:: https://github.com/cwgaldino/inkslide/blob/master/figs/fig_3.png?sanitize=true
