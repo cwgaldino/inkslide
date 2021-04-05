@@ -10,7 +10,6 @@ Slide presentation from Inkscape svg files using python. It was tested on Ubuntu
 Export presentation:
 
 .. image:: https://github.com/cwgaldino/inkslide/blob/master/figs/fig_2.png?sanitize=true
-  :width: 50px
 
 .. image:: https://github.com/cwgaldino/inkslide/blob/master/figs/fig_3.png?sanitize=true
 
