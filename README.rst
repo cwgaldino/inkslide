@@ -3,11 +3,13 @@
 inkslide
 =========
 
-Slide presentation from Inkscape svg files using python.
+Slide presentation from Inkscape svg files using python. It was tested on Ubuntu 20.04 with Inkscape 1.0 and 0.9.3. However, it should work fine on windows and mac (let me know).
 
-.. image:: https://github.com/cwgaldino/inkslide/blob/master/readme.png?sanitize=true
+.. image:: https://github.com/cwgaldino/inkslide/blob/master/figs/fig_1.png?sanitize=true
 
-It was tested on Ubuntu 20.04 with Inkscape 1.0 and 0.9.3. However, it should work fine on windows and mac.
+.. image:: https://github.com/cwgaldino/inkslide/blob/master/figs/fig_2.png?sanitize=true
+
+.. image:: https://github.com/cwgaldino/inkslide/blob/master/figs/fig_3.png?sanitize=true
 
 Please, report issues and enhancement ideas on GitHub. The script is in a early stage of development so every comment helps.
 

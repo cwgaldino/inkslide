@@ -42,6 +42,6 @@ end, +end2
 end, -end3
 end, -end4
 black
-save at: /home/galdino/github/inkslide/presentations/presentation1/slides.pdf
+save at:  ./presentation.pdf
 converter: None
 slide number: true

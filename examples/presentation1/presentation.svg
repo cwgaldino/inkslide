@@ -8479,18 +8479,18 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49935446"
+     inkscape:zoom="0.74157864"
      inkscape:cx="805.03937"
-     inkscape:cy="453.54331"
+     inkscape:cy="365.91872"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer12"
+     inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
-     inkscape:window-width="1377"
-     inkscape:window-height="1034"
-     inkscape:window-x="6"
-     inkscape:window-y="1"
-     inkscape:window-maximized="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
      inkscape:snap-global="false" />
   <metadata
      id="metadata5">
@@ -8519,14 +8519,25 @@
     <text
        xml:space="preserve"
        style="font-size:16.9333px;line-height:1.25;font-family:cmr10;-inkscape-font-specification:cmr10;stroke-width:0.264583"
-       x="181.87085"
-       y="-43.134357"
+       x="152.50397"
+       y="-34.20742"
        id="text34002"><tspan
          sodipodi:role="line"
          id="tspan34000"
-         x="181.87085"
-         y="-43.134357"
+         x="152.50397"
+         y="-34.20742"
          style="font-size:16.9333px;stroke-width:0.264583">inkslide.slide number:true</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16.9333px;line-height:1.25;font-family:cmr10;-inkscape-font-specification:cmr10;display:inline;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:round"
+       x="152.58417"
+       y="-16.16017"
+       id="text34002-3"><tspan
+         sodipodi:role="line"
+         id="tspan34000-6"
+         x="152.58417"
+         y="-16.16017"
+         style="font-size:16.9333px;stroke-width:0.264583">inkslide.save at: ./presentation.pdf</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -40484,15 +40495,15 @@
        id="g17125"
        transform="translate(1.5853627,-8.716577)">
       <image
-         sodipodi:absref="/home/galdino/Documents/Events/2019_SBF/presentation_V2/LNLS_logo_2.png"
-         xlink:href="../../../../Documents/Events/2019_SBF/presentation_V2/LNLS_logo_2.png"
-         y="185.9319"
-         x="89.761002"
-         id="image960"
-         preserveAspectRatio="none"
-         height="26.547003"
+         xlink:href="file:///media/galdino/9c5bbe77-cec8-412a-8bfc-49877356d559/galdino/Documents/Events/2019_SBF/presentation_V2/LNLS_logo_2.png"
+         style="display:inline;stroke-width:2.47171"
          width="26.761091"
-         style="display:inline;stroke-width:2.47171" />
+         height="26.547003"
+         preserveAspectRatio="none"
+         id="image960"
+         x="89.761002"
+         y="185.9319"
+         sodipodi:absref="/media/galdino/9c5bbe77-cec8-412a-8bfc-49877356d559/galdino/Documents/Events/2019_SBF/presentation_V2/LNLS_logo_2.png" />
       <image
          sodipodi:absref="/home/galdino/github/inkslide/examples/presentation1/logobitmap.jpg"
          xlink:href="logobitmap.jpg"
