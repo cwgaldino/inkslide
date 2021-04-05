@@ -42,9 +42,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.2424558"
-     inkscape:cx="1099.9255"
-     inkscape:cy="517.20339"
+     inkscape:zoom="0.6212279"
+     inkscape:cx="1227.3119"
+     inkscape:cy="625.73179"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -78,13 +78,13 @@
     <image
        sodipodi:absref="/home/galdino/github/inkslide/figs/screenshot1.png"
        xlink:href="screenshot1.png"
-       inkscape:svg-dpi="1"
-       width="508.52918"
-       height="286.27917"
-       preserveAspectRatio="none"
-       id="image11076"
+       y="2.0229714"
        x="-134.49411"
-       y="2.0229714" />
+       id="image11076"
+       preserveAspectRatio="none"
+       height="286.27917"
+       width="508.52918"
+       inkscape:svg-dpi="1" />
     <g
        id="g11099"
        transform="matrix(0.89042174,0,0,0.89042174,-29.283604,26.71367)">
@@ -163,28 +163,25 @@
         </g>
         <text
            xml:space="preserve"
-           style="font-size:9.87778px;line-height:1.25;font-family:cmr10;-inkscape-font-specification:cmr10;white-space:pre;shape-inside:url(#rect11084-3);fill:#ffffff;stroke-width:0.264583;"
+           style="font-size:9.87778px;line-height:1.25;font-family:cmr10;-inkscape-font-specification:cmr10;white-space:pre;fill:#ffffff;stroke-width:0.264583;shape-inside:url(#rect11084-3);"
            x="63.671692"
            y="122.54952"
            id="text11082-3"
            transform="translate(6.5981272,-0.34831025)"><tspan
              x="-115.54883"
              y="25.007527"><tspan
-               style="fill:#ffffff">Use tags to define slide </tspan></tspan><tspan
+               style="fill:#ffffff">Tags define the slide </tspan></tspan><tspan
              x="-115.54883"
-             y="37.354752"><tspan
-               style="fill:#ffffff">type (</tspan><tspan
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Carlito;-inkscape-font-specification:Carlito">@</tspan><tspan
-               style="fill:#ffffff">, $, #, *, +, -)</tspan></tspan></text>
+             y="37.354752"><tspan>type (@, $, #, *, +, -) </tspan></tspan></text>
       </g>
     </g>
     <rect
-       style="fill:#ff7777;fill-opacity:1;stroke-width:1.76087"
+       style="fill:#ff7777;fill-opacity:1;stroke-width:2.51066"
        id="rect11157"
-       width="105.86702"
-       height="100.12993"
-       x="94.699974"
-       y="114.05473" />
+       width="142.00645"
+       height="151.75391"
+       x="68.557899"
+       y="113.70507" />
     <text
        xml:space="preserve"
        style="font-size:9.87778px;line-height:1.25;font-family:cmr10;-inkscape-font-specification:cmr10;white-space:pre;stroke-width:0.264583"
@@ -197,63 +194,64 @@
            id="tspan11182">Presentation settings </tspan></tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:5.64444px;line-height:1.25;font-family:cmr10;-inkscape-font-specification:cmr10;white-space:pre;shape-inside:url(#rect11157);stroke-width:0.264583;"
+       style="font-size:8.46667px;line-height:1.25;font-family:cmr10;-inkscape-font-specification:cmr10;white-space:pre;shape-inside:url(#rect11157);stroke-width:0.264583;"
        x="135.34633"
        y="167.52316"
        id="text11202"><tspan
-         x="94.699219"
-         y="119.14493"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:cmb10;-inkscape-font-specification:cmb10;fill:#ffffff">Example:</tspan><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:Carlito;-inkscape-font-specification:Carlito;fill:#ffffff">
+         x="68.558594"
+         y="121.34045"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46667px;font-family:cmb10;-inkscape-font-specification:cmb10;fill:#ffffff">Example:</tspan><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46667px;font-family:Carlito;-inkscape-font-specification:Carlito;fill:#ffffff">
 </tspan></tspan><tspan
-         x="94.699219"
-         y="126.33508"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:Carlito;-inkscape-font-specification:Carlito;fill:#ffffff">@</tspan><tspan
-           style="font-size:5.64444px;fill:#ffffff;stroke-width:0.264583">: background. 
+         x="68.558594"
+         y="132.1257"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46667px;font-family:Carlito;-inkscape-font-specification:Carlito;fill:#ffffff">@</tspan><tspan
+           style="font-size:8.46667px;fill:#ffffff;stroke-width:0.264583">: background. 
 </tspan></tspan><tspan
-         x="94.699219"
-         y="133.52524"><tspan
-           style="font-size:5.64444px;fill:#ffffff;stroke-width:0.264583">Layer will be used as background for any </tspan></tspan><tspan
-         x="94.699219"
-         y="140.5808"><tspan
-           style="font-size:5.64444px;fill:#ffffff;stroke-width:0.264583">subsequent layers (slides) until another @ </tspan></tspan><tspan
-         x="94.699219"
-         y="147.63636"><tspan
-           style="font-size:5.64444px;fill:#ffffff;stroke-width:0.264583">layer appears.
+         x="68.558594"
+         y="142.91095"><tspan
+           style="font-size:8.46667px;fill:#ffffff;stroke-width:0.264583">Layer will be used as background for </tspan></tspan><tspan
+         x="68.558594"
+         y="153.4943"><tspan
+           style="font-size:8.46667px;fill:#ffffff;stroke-width:0.264583">any subsequent layers (slides) until </tspan></tspan><tspan
+         x="68.558594"
+         y="164.07764"><tspan
+           style="font-size:8.46667px;fill:#ffffff;stroke-width:0.264583">another @ layer appears.
 </tspan></tspan><tspan
-         x="94.699219"
-         y="154.69192"><tspan
-           style="font-size:5.64444px;fill:#ffffff;stroke-width:0.264583">
+         x="68.558594"
+         y="174.66098"><tspan
+           style="font-size:8.46667px;fill:#ffffff;stroke-width:0.264583">
 </tspan></tspan><tspan
-         x="94.699219"
-         y="161.74747"><tspan
-           style="font-size:5.64444px;fill:#ffffff;stroke-width:0.264583">$: overlayer.
+         x="68.558594"
+         y="185.24433"><tspan
+           style="font-size:8.46667px;fill:#ffffff;stroke-width:0.264583">$: overlayer.
 </tspan></tspan><tspan
-         x="94.699219"
-         y="168.80303"><tspan
-           style="font-size:5.64444px;fill:#ffffff;stroke-width:0.264583">Same as </tspan><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Carlito;-inkscape-font-specification:Carlito;fill:#ffffff">@</tspan><tspan
-           style="font-size:5.64444px;fill:#ffffff;stroke-width:0.264583">, but layer is used as an </tspan></tspan><tspan
-         x="94.699219"
-         y="175.99319"><tspan
-           style="font-size:5.64444px;fill:#ffffff;stroke-width:0.264583">overlayer.
+         x="68.558594"
+         y="195.82767"><tspan
+           style="font-size:8.46667px;fill:#ffffff;stroke-width:0.264583">Same as </tspan><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46667px;font-family:Carlito;-inkscape-font-specification:Carlito;fill:#ffffff">@</tspan><tspan
+           style="font-size:8.46667px;fill:#ffffff;stroke-width:0.264583">, but layer is used as an </tspan></tspan><tspan
+         x="68.558594"
+         y="206.61292"><tspan
+           style="font-size:8.46667px;fill:#ffffff;stroke-width:0.264583">overlayer.
 </tspan></tspan><tspan
-         x="94.699219"
-         y="183.04874"><tspan
-           style="font-size:5.64444px;fill:#ffffff;stroke-width:0.264583">
+         x="68.558594"
+         y="217.19626"><tspan
+           style="font-size:8.46667px;fill:#ffffff;stroke-width:0.264583">
 </tspan></tspan><tspan
-         x="94.699219"
-         y="190.1043"><tspan
-           style="font-size:5.64444px;fill:#ffffff;stroke-width:0.264583">*: keep and add.
+         x="68.558594"
+         y="227.77961"><tspan
+           style="font-size:8.46667px;fill:#ffffff;stroke-width:0.264583">*: keep and add.
 </tspan></tspan><tspan
-         x="94.699219"
-         y="197.15986"><tspan
-           style="font-size:5.64444px;fill:#ffffff;stroke-width:0.264583">Previous layer (or layers) is added as </tspan></tspan><tspan
-         x="94.699219"
-         y="204.21541"><tspan
-           style="font-size:5.64444px;fill:#ffffff;stroke-width:0.264583">background to the current layer to form </tspan></tspan><tspan
-         x="94.699219"
-         y="211.27097"><tspan
-           style="font-size:5.64444px;fill:#ffffff;stroke-width:0.264583">one slide.  </tspan></tspan></text>
+         x="68.558594"
+         y="238.36295"><tspan
+           style="font-size:8.46667px;fill:#ffffff;stroke-width:0.264583">Previous layer (or layers) is added as </tspan></tspan><tspan
+         x="68.558594"
+         y="248.94629"><tspan
+           style="font-size:8.46667px;fill:#ffffff;stroke-width:0.264583">background to the current layer to </tspan></tspan><tspan
+         x="68.558594"
+         y="259.52964"><tspan
+           style="font-size:8.46667px;fill:#ffffff;stroke-width:0.264583">form one slide. 
+</tspan></tspan></text>
   </g>
 </svg>
