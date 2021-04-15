@@ -5,6 +5,8 @@ inkslide
 
 Slide presentation from Inkscape svg files using python. It was tested on Ubuntu 20.04 with Inkscape 1.0 and 0.9.3. However, it should work fine on windows and mac (let me know).
 
+Update 15-April-2021: I started working on an Inkscape extension based on this repository, but it is gonna take a while since I am still learning about developing extensions. Let me know if you wish to help me with that.
+
 .. image:: https://github.com/cwgaldino/inkslide/blob/master/figs/fig_1.png?sanitize=true
 
 .. image:: https://github.com/cwgaldino/inkslide/blob/master/figs/fig_2.png?sanitize=true
